@@ -20,16 +20,14 @@ It is the sister project of [WioL1Pro-CVHBuild](https://github.com/cvhviz/WioL1P
 
 Wi-Fi is in development: on-device network setup, clock sync, the MeshCore app over Wi-Fi, and firmware updates over Wi-Fi from this repository's releases.
 
-## Design mockups
-
-These are the design mockups the interface was built from, rendered at the panel's native 320×240 and shown here at 2×. **They are not screenshots of the firmware**: names, messages and coordinates are made up, and the shipping build differs in details (for example Settings now has "Wake & lock" and a volume control, the Radio page computes the real airtime per packet, and messages can include colour emoji).
+## Screens
 
 | | | |
 |---|---|---|
-| ![Home](docs/mockups/01-home.png)<br>Home | ![Chats](docs/mockups/02-chats.png)<br>Chats | ![Conversation](docs/mockups/03-conversation.png)<br>Conversation |
-| ![Keyboard](docs/mockups/04-keyboard.png)<br>Keyboard | ![Nodes](docs/mockups/05-nodes.png)<br>Nodes | ![Node detail](docs/mockups/06-node-detail.png)<br>Node detail |
-| ![Radio](docs/mockups/07-radio.png)<br>Radio | ![GPS](docs/mockups/08-gps.png)<br>GPS | ![Settings](docs/mockups/09-settings.png)<br>Settings |
-| ![Lock screen](docs/mockups/10-lock-screen.png)<br>Lock screen | | |
+| ![Home](docs/screens/01-home.png)<br>Home | ![Chats](docs/screens/02-chats.png)<br>Chats | ![Conversation](docs/screens/03-conversation.png)<br>Conversation |
+| ![Keyboard](docs/screens/04-keyboard.png)<br>Keyboard | ![Nodes](docs/screens/05-nodes.png)<br>Nodes | ![Node detail](docs/screens/06-node-detail.png)<br>Node detail |
+| ![Radio](docs/screens/07-radio.png)<br>Radio | ![GPS](docs/screens/08-gps.png)<br>GPS | ![Settings](docs/screens/09-settings.png)<br>Settings |
+| ![Lock screen](docs/screens/10-lock-screen.png)<br>Lock screen | | |
 
 ## Installing
 
