@@ -23,7 +23,7 @@
 - **Wake & lock**: tap to wake, auto-lock, and a lock screen that ignores touch in a pocket. Double-press WAKE or User to unlock.
 - **Imperial units** (ft, mi, mph, °F) and 12-hour time by default.
 
-- **Wi-Fi**: on-device network setup, clock sync, the MeshCore app over Wi-Fi, local firmware updates from a browser, and **online updates from this repository's releases** (from the next release; checked once a day while on Wi-Fi, and nothing installs without your confirmation).
+- **Wi-Fi**: on-device network setup, clock sync, the MeshCore app over Wi-Fi, local firmware updates from a browser, and **online updates from this repository's releases** (from Cairn 106; checked once a day while on Wi-Fi, and nothing installs without your confirmation).
 - **Offline map** from microSD tiles, with pinch to zoom.
 
 ## Screens
@@ -81,7 +81,7 @@ The boards enter download mode on their own when esptool connects. If not: L2, h
 
 ### Over Wi-Fi (L2 Pro, Heltec V4)
 
-- **Online** (from the next release): Settings > System > Firmware update > **Check for updates**. The device also checks this repository once a day while on Wi-Fi and shows a notice when a newer build is out. It downloads the board's `-update.bin` over HTTPS, checks its size, SHA-256 and board marker, and installs only after you confirm.
+- **Online** (from Cairn 106): Settings > System > Firmware update > **Check for updates**. The device also checks this repository once a day while on Wi-Fi and shows a notice when a newer build is out. It downloads the board's `-update.bin` over HTTPS, checks its size, SHA-256 and board marker, and installs only after you confirm.
 - **Local:** turn on update mode on the same page and upload the `-update.bin` from a browser at the address it shows.
 
 ## Publishing a release (for the online updater)
