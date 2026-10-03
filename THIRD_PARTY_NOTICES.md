@@ -1,6 +1,6 @@
 # Third-party notices
 
-The CVHBuild firmware for the Wio Tracker L2 Pro includes the following third-party works. Their full licence texts are in [`licenses/`](licenses/).
+The Cairn firmware (the touch builds for the Wio Tracker L2 Pro and Heltec V4 in particular) includes the following third-party works. Their full licence texts are in [`licenses/`](licenses/).
 
 | Work | Used for | Licence | Text |
 |---|---|---|---|
