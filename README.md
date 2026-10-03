@@ -1,4 +1,6 @@
-# Cairn
+<p align="center"><img src="docs/cairn_mark.png" alt="Cairn" width="140"></p>
+
+<h1 align="center">Cairn</h1>
 
 **Cairn** is a customized build of the [MeshCore](https://github.com/meshcore-dev/MeshCore) companion firmware for four boards. Every board is built from the same source tree, shares its mesh and radio code (which tracks stock MeshCore), and stays fully compatible with the official MeshCore apps. Builds are numbered: the splash screen shows **BUILD N**, and releases are tagged `cairn-vN`. L1 releases from before Cairn are in the [older L1 repository](https://github.com/cvhviz/WioL1Pro-CVHBuild).
 
@@ -13,6 +15,10 @@
 
 - [Cairn brochure (PDF)](docs/Cairn_Wio_L2_Pro_Brochure.pdf): the firmware, the board and the 3D-printed case, in nine pages.
 - [Cairn user manual (PDF)](docs/Cairn_Wio_L2_Pro_User_Manual.pdf): every screen and setting, explained step by step.
+
+[![Cairn on the Wio Tracker L2 Pro](docs/promo/01_cairn_hero.jpg)](docs/promo/01_cairn_hero.jpg)
+
+More promo images (free to share) are in [docs/promo](docs/promo).
 
 ## The touch interface (Wio Tracker L2 Pro, Heltec V4)
 
