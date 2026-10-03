@@ -9,14 +9,22 @@
 | Heltec WiFi LoRa 32 V4 + Expansion Kit (2.8" touch) | ESP32-S3 | the same touch UI as the L2 |
 | Heltec Mesh Node T096 | nRF52840 | 0.96" TFT, one button, themed UI |
 
+## Brochure and user manual (Wio Tracker L2 Pro)
+
+- [Cairn brochure (PDF)](docs/Cairn_Wio_L2_Pro_Brochure.pdf): the firmware, the board and the 3D-printed case, in nine pages.
+- [Cairn user manual (PDF)](docs/Cairn_Wio_L2_Pro_User_Manual.pdf): every screen and setting, explained step by step.
+
 ## The touch interface (Wio Tracker L2 Pro, Heltec V4)
 
 - **Side icon rail**: Home, Chats, Nodes, Radio, GPS and Settings, with unread and new-advert badges. A status bar shows the page title, a 12-hour clock, Bluetooth, GPS and battery.
-- **Home dashboard**: a large clock plus live cards for battery, chats, nodes, GPS, radio and Bluetooth. Tap a card to open its page.
+- **Home dashboard**: a large clock with sunrise/sunset, temperature and channel-busy readouts, plus live cards for battery, chats, nodes, GPS, radio and network. Tap a card to open its page.
 - **Chats**: channels, direct messages and rooms in one list. Conversations show as bubbles, and there's a full on-screen keyboard with emoji, quick replies and a byte counter.
 - **Colour emoji**: 229 Noto emoji drawn inline in messages, previews and node names. The keyboard has an emoji picker with recently used emoji first.
-- **Nodes**: recent adverts and saved contacts with hops, last heard and distance in ft/mi. Node detail shows position and bearing, with ping and message.
+- **Nodes**: recent adverts and saved contacts as a list or cards, with hops, last heard and distance in ft/mi. Node detail shows position and bearing, with ping, chat and map.
+- **Repeater tools**: a repeater scan that shows who hears you and whom you hear, and remote admin for repeaters and room servers (status, neighbours, sensors and actions).
 - **Radio**: frequency and settings, airtime per packet, Now/Floor/Peak/Margin meters, a live spectrum, and the last packets heard.
+- **Spectrum and band scan**: your channel over 10 s to 1 h (noise floor, busy %, packets, airtime), and a sweep of the whole band with a waterfall. The mesh pauses while the band scan runs.
+- **Quick panel**: tap the status bar or press User for Wi-Fi, Bluetooth, GPS and sound toggles, lock, flashlight, advert, and brightness and volume sliders.
 - **GPS**: position in ft/mph with a course compass, Off / On / Eco modes, and a map of nodes by bearing and distance.
 - **Settings**: every change is a draft with Cancel and Save. Radio changes ask a second time, and destructive actions need a hold plus a confirmation.
 - **Sound**: volume slider and a choice of alert tone per event (direct message, channel, advert, sent).
@@ -33,7 +41,12 @@
 | ![Home](docs/screens/01-home.png)<br>Home | ![Chats](docs/screens/02-chats.png)<br>Chats | ![Conversation](docs/screens/03-conversation.png)<br>Conversation |
 | ![Keyboard](docs/screens/04-keyboard.png)<br>Keyboard | ![Nodes](docs/screens/05-nodes.png)<br>Nodes | ![Node detail](docs/screens/06-node-detail.png)<br>Node detail |
 | ![Radio](docs/screens/07-radio.png)<br>Radio | ![GPS](docs/screens/08-gps.png)<br>GPS | ![Settings](docs/screens/09-settings.png)<br>Settings |
-| ![Lock screen](docs/screens/10-lock-screen.png)<br>Lock screen | | |
+| ![Lock screen](docs/screens/10-lock-screen.png)<br>Lock screen | ![Quick panel](docs/screens/11-quick-panel.png)<br>Quick panel | ![Spectrum](docs/screens/12-spectrum.png)<br>Spectrum |
+| ![Band scan](docs/screens/13-band-scan.png)<br>Band scan | ![Map](docs/screens/14-map.png)<br>Map | ![Repeater scan](docs/screens/15-repeater-scan.png)<br>Repeater scan |
+| ![Repeater admin](docs/screens/16-repeater-admin.png)<br>Repeater admin | ![Nodes as cards](docs/screens/17-nodes-cards.png)<br>Nodes as cards | ![Channels](docs/screens/18-channels.png)<br>Channels |
+| ![Firmware update](docs/screens/19-firmware-update.png)<br>Firmware update | | |
+
+Screens use fictional sample data.
 
 ## Release files
 
