@@ -22,5 +22,3 @@ The LilyGO T-Display SF32 build and its installer also include:
 | [sftool](https://github.com/OpenSiFli/sftool), © OpenSiFli | The flashing tool bundled, unchanged, in the SF32 `-install.zip` | Apache 2.0 | [sftool-LICENSE.txt](licenses/sftool-LICENSE.txt) |
 
 Other libraries (RadioLib, the Arduino ESP32 core, ESP-IDF and the audio driver) are linked unmodified under their own permissive licences; see each project's repository.
-
-The interface's layout ideas were informed by [WadaMesh](https://github.com/ALLFATHER-BV/wadamesh). No WadaMesh code is used.
