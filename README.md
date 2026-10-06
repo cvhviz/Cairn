@@ -36,6 +36,8 @@ The boards listed under "Original ESP32" use the original ESP32 rather than the 
 | Elecrow ThinkNode M9 | keyboard + d-pad | |
 | LilyGO T-Deck | keyboard + trackball, touchscreen | |
 
+**Also coming:** map downloads straight to the device over Wi-Fi, so you won't need a computer to prepare the offline map card. Until then, [tools/l2_maptiles.py](tools/l2_maptiles.py) builds the card on a computer.
+
 Want another board? [Ask for it](https://github.com/cvhviz/Cairn/issues/new?template=board_request.yml).
 
 ## Features
