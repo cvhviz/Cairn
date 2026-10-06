@@ -1,6 +1,6 @@
 # Third-party notices
 
-The Cairn firmware (the touch builds for the Wio Tracker L2 Pro and Heltec V4 in particular) includes the following third-party works. Their full licence texts are in [`licenses/`](licenses/).
+The Cairn firmware (the touch builds for the Wio Tracker L2 Pro, Heltec V4 and T-Display SF32 in particular) includes the following third-party works. Their full licence texts are in [`licenses/`](licenses/).
 
 | Work | Used for | Licence | Text |
 |---|---|---|---|
@@ -9,6 +9,17 @@ The Cairn firmware (the touch builds for the Wio Tracker L2 Pro and Heltec V4 in
 | [Noto Emoji](https://github.com/googlefonts/noto-emoji), © Google LLC | Colour emoji, embedded as downscaled bitmaps | SIL Open Font License 1.1 (the repository's README also lists Apache 2.0 for image resources) | [NotoEmoji-LICENSE.txt](licenses/NotoEmoji-LICENSE.txt) |
 | [region-flags](https://github.com/googlefonts/noto-emoji/tree/main/third_party/region-flags), via Noto Emoji | The 🇺🇸 flag | Public domain or exempt from copyright | [region-flags-LICENSE.txt](licenses/region-flags-LICENSE.txt) |
 | [LovyanGFX](https://github.com/lovyan03/LovyanGFX), © lovyan03 and contributors | Display and touch driver | FreeBSD | [LovyanGFX-license.txt](licenses/LovyanGFX-license.txt) |
+
+The LilyGO T-Display SF32 build and its installer also include:
+
+| Work | Used for | Licence | Text |
+|---|---|---|---|
+| [SiFli SDK](https://github.com/OpenSiFli/SiFli-SDK), © SiFli Technologies | SF32 drivers, Bluetooth stack, bootloader (with Cairn's update-slot changes) | Apache 2.0 | [SiFli-SDK-LICENSE.txt](licenses/SiFli-SDK-LICENSE.txt) |
+| [RT-Thread](https://github.com/RT-Thread/rt-thread), © RT-Thread Development Team | Real-time operating system | Apache 2.0 | [RT-Thread-LICENSE.txt](licenses/RT-Thread-LICENSE.txt) |
+| [LVGL](https://github.com/lvgl/lvgl), © LVGL Kft | Graphics library for the SF32 interface | MIT | [LVGL-LICENSE.txt](licenses/LVGL-LICENSE.txt) |
+| [Font Awesome Free 5](https://github.com/FortAwesome/Font-Awesome), © Fonticons, Inc., via LVGL | Some interface symbols | Icons CC BY 4.0, font SIL OFL 1.1 | [FontAwesome-LICENSE.txt](licenses/FontAwesome-LICENSE.txt) |
+| [DejaVu Sans](https://github.com/dejavu-fonts/dejavu-fonts), © Bitstream, DejaVu changes public domain | Extra glyphs in the SF32 fonts | Bitstream Vera licence | [DejaVu-LICENSE.txt](licenses/DejaVu-LICENSE.txt) |
+| [sftool](https://github.com/OpenSiFli/sftool), © OpenSiFli | The flashing tool bundled, unchanged, in the SF32 `-install.zip` | Apache 2.0 | [sftool-LICENSE.txt](licenses/sftool-LICENSE.txt) |
 
 Other libraries (RadioLib, the Arduino ESP32 core, ESP-IDF and the audio driver) are linked unmodified under their own permissive licences; see each project's repository.
 

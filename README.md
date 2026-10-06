@@ -28,11 +28,16 @@ Builds are numbered. The splash screen shows **BUILD N**, releases are tagged `c
 
 The boards listed under "Original ESP32" use the original ESP32 rather than the S3. They install the same way; the [ESP32 guide](docs/install/esp32-s3.md#original-esp32-boards) has the one difference.
 
+### SiFli SF32 (install with one double-click)
+
+| Board | Interface | Status | Install | Board page |
+|---|---|---|---|---|
+| LilyGO T-Display SF32 + keypad board | 480×480 AMOLED touchscreen, 20-key keypad, its own card-based interface | ✅ | [installer for Mac, Windows, Linux](docs/install/sf32.md) | [T-Display SF32](docs/boards/lilygo-t-display-sf32.md) |
+
 ### Coming soon
 
 | Board | Interface | Notes |
 |---|---|---|
-| LilyGO T-Display SF32 + keypad | 480×480 AMOLED, LVGL keypad UI | SiFli SF32LB52, not nRF52 or ESP32. Installs with SiFli's `sftool` ([preview of the steps](docs/install/sf32.md)). |
 | Elecrow ThinkNode M9 | keyboard + d-pad | |
 | LilyGO T-Deck | keyboard + trackball, touchscreen | |
 
@@ -42,35 +47,36 @@ Want another board? [Ask for it](https://github.com/cvhviz/Cairn/issues/new?temp
 
 ## Features
 
-| | L1 Pro | L2 Pro | Heltec V4 touch | T096 | Preview boards |
-|---|:-:|:-:|:-:|:-:|:-:|
-| Works with the official MeshCore apps (Bluetooth) | ✅ | ✅ | ✅ | ✅ | ✅ |
-| USB-serial companion image | | | | ✅ | ✅ |
-| Touch UI with on-screen keyboard and colour emoji | | ✅ | ✅ | | |
-| Wi-Fi: app link, clock sync, browser updates | | ✅ | ✅ | | |
-| Online updates from this repository | | ✅ | ✅ | | |
-| GPS | ✅ | ✅ | ✅ (Expansion Kit) | ✅ | if the board has one |
-| Offline map from microSD | | ✅ | ✅ | | |
-| microSD card | | ✅ | ✅ | | |
-| Spectrum and band scan | | ✅ | ✅ | spectrum | |
-| Repeater scan and remote admin on the device | | ✅ | ✅ | | |
-| Room server image | ✅ | | | | |
-| Colour themes | | | | ✅ | colour-screen boards (Wireless Tracker, T1) |
-| Imperial units, 12-hour clock | ✅ | ✅ | ✅ | ✅ | ✅ |
+| | L1 Pro | L2 Pro | Heltec V4 touch | T-Display SF32 | T096 | Preview boards |
+|---|:-:|:-:|:-:|:-:|:-:|:-:|
+| Works with the official MeshCore apps (Bluetooth) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| USB-serial companion image | | | | | ✅ | ✅ |
+| Touch UI with on-screen keyboard and colour emoji | | ✅ | ✅ | touch + keypad | | |
+| Wi-Fi: app link, clock sync, browser updates | | ✅ | ✅ | clock sync, online updates | | |
+| Online updates from this repository | | ✅ | ✅ | ✅ | | |
+| GPS | ✅ | ✅ | ✅ (Expansion Kit) | ✅ | ✅ | if the board has one |
+| Offline map from microSD | | ✅ | ✅ | coming | | |
+| microSD card | | ✅ | ✅ | ✅ | | |
+| Spectrum and band scan | | ✅ | ✅ | ✅ | spectrum | |
+| Repeater scan and remote admin on the device | | ✅ | ✅ | ✅ | | |
+| Room server image | ✅ | | | | | |
+| Colour themes | | | | | ✅ | colour-screen boards (Wireless Tracker, T1) |
+| Music player, voice recorder, IR remote, climate and step sensors | | | | ✅ | | |
+| Imperial units, 12-hour clock | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 
 ## Which file do I need?
 
 Each release carries every board's files, named `MeshCore-<Board>-CairnN-<date>[-<variant>].<ext>`. Your board page lists them all.
 
-| You want to… | nRF52840 boards | ESP32 boards |
-|---|---|---|
-| **Install Cairn for the first time** | the board's `.uf2` | the board's `-full.bin` at `0x0`, after a full erase. **This erases everything on the device.** Back up your identity first. |
-| **Update an existing Cairn device** | the board's `.uf2` (keeps your identity, contacts and settings) | the board's `-update.bin` at `0x10000`, or over Wi-Fi on the L2 and Heltec V4 touch (keeps everything) |
-| **Recover a device that won't boot** | re-copy the `.uf2`; the bootloader is never touched | erase, then the `-full.bin` at `0x0` |
+| You want to… | nRF52840 boards | ESP32 boards | T-Display SF32 |
+|---|---|---|---|
+| **Install Cairn for the first time** | the board's `.uf2` | the board's `-full.bin` at `0x0`, after a full erase. **This erases everything on the device.** Back up your identity first. | the `-install.zip`: unzip, double-click the installer |
+| **Update an existing Cairn device** | the board's `.uf2` (keeps your identity, contacts and settings) | the board's `-update.bin` at `0x10000`, or over Wi-Fi on the L2 and Heltec V4 touch (keeps everything) | over Wi-Fi (the board fetches the `-update.bin`), or the `-install.zip` again (keeps everything) |
+| **Recover a device that won't boot** | re-copy the `.uf2`; the bootloader is never touched | erase, then the `-full.bin` at `0x0` | run the `-install.zip` installer again |
 
 Flash either the `-full.bin` or the `-update.bin`, never both. `SHA256SUMS.txt` in each release covers every file: `shasum -a 256 -c SHA256SUMS.txt`.
 
-Install guides: [nRF52840 (UF2)](docs/install/nrf52-uf2.md) · [ESP32 (esptool or web)](docs/install/esp32-s3.md) · [T-Display SF32 (coming soon)](docs/install/sf32.md)
+Install guides: [nRF52840 (UF2)](docs/install/nrf52-uf2.md) · [ESP32 (esptool or web)](docs/install/esp32-s3.md) · [T-Display SF32 (one-click installer)](docs/install/sf32.md)
 
 ## Wio Tracker L2 Pro: brochure, manual and screens
 
@@ -102,11 +108,11 @@ Screens use fictional sample data.
 
 ## Publishing a release (for the online updater)
 
-The L2 and Heltec V4 touch builds read `https://api.github.com/repos/cvhviz/Cairn/releases/latest`. For a build to be offered:
+The L2, Heltec V4 touch and T-Display SF32 builds read `https://api.github.com/repos/cvhviz/Cairn/releases/latest`. For a build to be offered:
 
 - Tag it `cairn-vN`, where N is the build number shown on the splash (it must be higher than the device's own). Publish it as a normal release, not a draft or prerelease.
-- Attach each touch board's `-update.bin` under its exact name, `MeshCore-WioL2Pro-CairnN-YYYY-MM-DD-update.bin` and `MeshCore-HeltecV4Touch-CairnN-YYYY-MM-DD-update.bin`: nothing between the date and `-update.bin`. GitHub records each file's SHA-256, which the device checks, along with the size and the board's OTA marker inside the image.
-- No other asset may start with `MeshCore-WioL2Pro-Cairn` or `MeshCore-HeltecV4Touch-Cairn` and end in `-update.bin`. Preview boards use their own board names.
+- Attach each touch board's `-update.bin` under its exact name, `MeshCore-WioL2Pro-CairnN-YYYY-MM-DD-update.bin`, `MeshCore-HeltecV4Touch-CairnN-YYYY-MM-DD-update.bin` and `MeshCore-TDisplaySF32-CairnN-YYYY-MM-DD-update.bin` (the SF32 also accepts a `<asset>.sha256` next to it): nothing between the date and `-update.bin`. GitHub records each file's SHA-256, which the device checks, along with the size and the board's OTA marker inside the image.
+- No other asset may start with `MeshCore-WioL2Pro-Cairn`, `MeshCore-HeltecV4Touch-Cairn` or `MeshCore-TDisplaySF32-Cairn` and end in `-update.bin`. Preview boards use their own board names.
 - The release notes are shown on the device before installing, so keep the top of them short and plain.
 
 ## Relationship to upstream

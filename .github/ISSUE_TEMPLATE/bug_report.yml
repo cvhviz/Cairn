@@ -16,6 +16,7 @@ body:
         - Seeed Wio Tracker L2 Pro
         - Heltec V4 + Expansion Kit (touch)
         - Heltec Mesh Node T096
+        - LilyGO T-Display SF32
         - A preview board (name it below)
     validations:
       required: true
@@ -44,6 +45,7 @@ body:
         - esptool, first install (-full.bin after erase)
         - esptool, update (-update.bin at 0x10000)
         - Web flasher
+        - SF32 installer (Install on Mac / Windows / Linux)
         - Online update over Wi-Fi
         - Browser upload in update mode
         - Other (say below)
