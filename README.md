@@ -2,45 +2,85 @@
 
 <h1 align="center">Cairn</h1>
 
-**Cairn** is a customized build of the [MeshCore](https://github.com/meshcore-dev/MeshCore) companion firmware for four boards. Every board is built from the same source tree, shares its mesh and radio code (which tracks stock MeshCore), and stays fully compatible with the official MeshCore apps. Builds are numbered: the splash screen shows **BUILD N**, and releases are tagged `cairn-vN`. L1 releases from before Cairn are in the [older L1 repository](https://github.com/cvhviz/WioL1Pro-CVHBuild).
+**Cairn** is a fork of the [MeshCore](https://github.com/meshcore-dev/MeshCore) companion firmware. Every board is built from one source tree that shares MeshCore's mesh and radio code, and every build works with the official MeshCore apps ([web](https://app.meshcore.nz), [Android](https://play.google.com/store/apps/details?id=com.liamcottle.meshcore.android), [iOS](https://apps.apple.com/us/app/meshcore/id6742354151)).
 
-| Board | Chip | Interface |
+Builds are numbered. The splash screen shows **BUILD N**, releases are tagged `cairn-vN`, and the files are named `MeshCore-<Board>-CairnN-<date>…`, so you can match a device to a release from its own screen. **Download the files from the [latest release](https://github.com/cvhviz/Cairn/releases/latest).** L1 releases from before Cairn are in the [older L1 repository](https://github.com/cvhviz/WioL1Pro-CVHBuild).
+
+## Supported boards
+
+✅ **Tested**: used on real hardware before each release. 🧪 **Preview**: builds from the same tree but hasn't been tried on hardware yet. Reports are welcome.
+
+### nRF52840 (install by copying a `.uf2`)
+
+| Board | Interface | Status | Install | Board page |
+|---|---|---|---|---|
+| Seeed Wio Tracker L1 Pro | OLED (SH1106 or 2.42" SSD1309 "DV1") or e-ink; joystick | ✅ | [UF2](docs/install/nrf52-uf2.md) | [L1 Pro](docs/boards/wio-tracker-l1-pro.md) |
+| Heltec Mesh Node T096 | 0.96" TFT, one button, themes | ✅ | [UF2](docs/install/nrf52-uf2.md) | [T096](docs/boards/heltec-t096.md) |
+| RAK4631, RAK3401, ProMicro, Nano G2 Ultra, Heltec T1, GAT562 boards, Meshtiny, Keepteen LT1, LilyGO T-Impulse Plus | OLED or colour TFT (Heltec T1, with themes), one-button UI | 🧪 | [UF2](docs/install/nrf52-uf2.md) | [Preview boards](docs/boards/preview-boards.md) |
+
+### ESP32 / ESP32-S3 (install with esptool or a web flasher)
+
+| Board | Interface | Status | Install | Board page |
+|---|---|---|---|---|
+| Seeed Wio Tracker L2 Pro | 3.2" touchscreen | ✅ | [esptool / web](docs/install/esp32-s3.md) | [L2 Pro](docs/boards/wio-tracker-l2-pro.md) |
+| Heltec WiFi LoRa 32 V4 + Expansion Kit (2.8" touch) | touchscreen, the same UI as the L2 | ✅ | [esptool / web](docs/install/esp32-s3.md) | [Heltec V4 touch](docs/boards/heltec-v4-touch.md) |
+| ESP32-S3: Heltec V4 / V4-R8 / V3 (OLED), Heltec Wireless Tracker (V1, V2), LilyGO T-Beam Supreme and T-Beam 1W, T3S3, Station G2 / G3 (USB build only), XIAO ESP32-S3, ThinkNode M2, Meshnology W12, Ebyte EoRa-S3. Original ESP32: Heltec V2, LilyGO T-Beam (SX1262 / SX1276, Bluetooth build only), T-LoRa V2.1-1.6, MeshAdventurer | OLED or colour TFT (Wireless Tracker, with themes), one-button UI | 🧪 | [esptool / web](docs/install/esp32-s3.md) | [Preview boards](docs/boards/preview-boards.md) |
+
+The boards listed under "Original ESP32" use the original ESP32 rather than the S3. They install the same way; the [ESP32 guide](docs/install/esp32-s3.md#original-esp32-boards) has the one difference.
+
+### Coming soon
+
+| Board | Interface | Notes |
 |---|---|---|
-| Seeed Wio Tracker L1 Pro | nRF52840 | OLED (SH1106), 2.42" SSD1309 "DV1", or e-ink; joystick |
-| Seeed Wio Tracker L2 Pro | ESP32-S3 | 3.2" 320x240 touchscreen, native touch UI |
-| Heltec WiFi LoRa 32 V4 + Expansion Kit (2.8" touch) | ESP32-S3 | the same touch UI as the L2 |
-| Heltec Mesh Node T096 | nRF52840 | 0.96" TFT, one button, themed UI |
+| LilyGO T-Display SF32 + keypad | 480×480 AMOLED, LVGL keypad UI | SiFli SF32LB52, not nRF52 or ESP32. Installs with SiFli's `sftool` ([preview of the steps](docs/install/sf32.md)). |
+| Elecrow ThinkNode M9 | keyboard + d-pad | |
+| LilyGO T-Deck | keyboard + trackball, touchscreen | |
 
-## Brochure and user manual (Wio Tracker L2 Pro)
+Want another board? [Ask for it](https://github.com/cvhviz/Cairn/issues/new?template=board_request.yml).
+
+## Features
+
+| | L1 Pro | L2 Pro | Heltec V4 touch | T096 | Preview boards |
+|---|:-:|:-:|:-:|:-:|:-:|
+| Works with the official MeshCore apps (Bluetooth) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| USB-serial companion image | | | | ✅ | ✅ |
+| Touch UI with on-screen keyboard and colour emoji | | ✅ | ✅ | | |
+| Wi-Fi: app link, clock sync, browser updates | | ✅ | ✅ | | |
+| Online updates from this repository | | ✅ | ✅ | | |
+| GPS | ✅ | ✅ | ✅ (Expansion Kit) | ✅ | if the board has one |
+| Offline map from microSD | | ✅ | ✅ | | |
+| microSD card | | ✅ | ✅ | | |
+| Spectrum and band scan | | ✅ | ✅ | spectrum | |
+| Repeater scan and remote admin on the device | | ✅ | ✅ | | |
+| Room server image | ✅ | | | | |
+| Colour themes | | | | ✅ | colour-screen boards (Wireless Tracker, T1) |
+| Imperial units, 12-hour clock | ✅ | ✅ | ✅ | ✅ | ✅ |
+
+## Which file do I need?
+
+Each release carries every board's files, named `MeshCore-<Board>-CairnN-<date>[-<variant>].<ext>`. Your board page lists them all.
+
+| You want to… | nRF52840 boards | ESP32 boards |
+|---|---|---|
+| **Install Cairn for the first time** | the board's `.uf2` | the board's `-full.bin` at `0x0`, after a full erase. **This erases everything on the device.** Back up your identity first. |
+| **Update an existing Cairn device** | the board's `.uf2` (keeps your identity, contacts and settings) | the board's `-update.bin` at `0x10000`, or over Wi-Fi on the L2 and Heltec V4 touch (keeps everything) |
+| **Recover a device that won't boot** | re-copy the `.uf2`; the bootloader is never touched | erase, then the `-full.bin` at `0x0` |
+
+Flash either the `-full.bin` or the `-update.bin`, never both. `SHA256SUMS.txt` in each release covers every file: `shasum -a 256 -c SHA256SUMS.txt`.
+
+Install guides: [nRF52840 (UF2)](docs/install/nrf52-uf2.md) · [ESP32 (esptool or web)](docs/install/esp32-s3.md) · [T-Display SF32 (coming soon)](docs/install/sf32.md)
+
+## Wio Tracker L2 Pro: brochure, manual and screens
 
 - [Cairn brochure (PDF)](docs/Cairn_Wio_L2_Pro_Brochure.pdf): the firmware, the board and the 3D-printed case, in nine pages.
-- [Cairn user manual (PDF)](docs/Cairn_Wio_L2_Pro_User_Manual.pdf): every screen and setting, explained step by step.
+- [Cairn user manual (PDF)](docs/Cairn_Wio_L2_Pro_User_Manual.pdf): every screen and setting, explained step by step. The offline-map tool it mentions is [tools/l2_maptiles.py](tools/l2_maptiles.py) ([how to use it](tools/L2_MAPTILES.md)).
+- The touch features are listed on the [L2 Pro board page](docs/boards/wio-tracker-l2-pro.md). The Heltec V4 touch build runs the same interface.
 
 [![Cairn on the Wio Tracker L2 Pro](docs/promo/01_cairn_hero.jpg)](docs/promo/01_cairn_hero.jpg)
 
 More promo images (free to share) are in [docs/promo](docs/promo).
 
-## The touch interface (Wio Tracker L2 Pro, Heltec V4)
-
-- **Side icon rail**: Home, Chats, Nodes, Radio, GPS and Settings, with unread and new-advert badges. A status bar shows the page title, a 12-hour clock, Bluetooth, GPS and battery.
-- **Home dashboard**: a large clock with sunrise/sunset, temperature and channel-busy readouts, plus live cards for battery, chats, nodes, GPS, radio and network. Tap a card to open its page.
-- **Chats**: channels, direct messages and rooms in one list. Conversations show as bubbles, and there's a full on-screen keyboard with emoji, quick replies and a byte counter.
-- **Colour emoji**: 229 Noto emoji drawn inline in messages, previews and node names. The keyboard has an emoji picker with recently used emoji first.
-- **Nodes**: recent adverts and saved contacts as a list or cards, with hops, last heard and distance in ft/mi. Node detail shows position and bearing, with ping, chat and map.
-- **Repeater tools**: a repeater scan that shows who hears you and whom you hear, and remote admin for repeaters and room servers (status, neighbours, sensors and actions).
-- **Radio**: frequency and settings, airtime per packet, Now/Floor/Peak/Margin meters, a live spectrum, and the last packets heard.
-- **Spectrum and band scan**: your channel over 10 s to 1 h (noise floor, busy %, packets, airtime), and a sweep of the whole band with a waterfall. The mesh pauses while the band scan runs.
-- **Quick panel**: tap the status bar or press User for Wi-Fi, Bluetooth, GPS and sound toggles, lock, flashlight, advert, and brightness and volume sliders.
-- **GPS**: position in ft/mph with a course compass, Off / On / Eco modes, and a map of nodes by bearing and distance.
-- **Settings**: every change is a draft with Cancel and Save. Radio changes ask a second time, and destructive actions need a hold plus a confirmation.
-- **Sound**: volume slider and a choice of alert tone per event (direct message, channel, advert, sent).
-- **Wake & lock**: tap to wake, auto-lock, and a lock screen that ignores touch in a pocket. Double-press WAKE or User to unlock.
-- **Imperial units** (ft, mi, mph, °F) and 12-hour time by default.
-
-- **Wi-Fi**: on-device network setup, clock sync, the MeshCore app over Wi-Fi, local firmware updates from a browser, and **online updates from this repository's releases** (from Cairn 106; checked once a day while on Wi-Fi, and nothing installs without your confirmation).
-- **Offline map** from microSD tiles, with pinch to zoom.
-
-## Screens
+### Screens
 
 | | | |
 |---|---|---|
@@ -54,76 +94,23 @@ More promo images (free to share) are in [docs/promo](docs/promo).
 
 Screens use fictional sample data.
 
-## Release files
+## Reporting a problem
 
-Each release carries the images for every board. Pick the files for yours:
-
-| Board | File | Use |
-|---|---|---|
-| Wio Tracker L1 Pro | `MeshCore-WioL1Pro-CairnN-DATE.uf2` | SH1106 OLED |
-| | `MeshCore-DV1-CairnN-DATE.uf2` | 2.42" SSD1309 on the Grove port |
-| | `MeshCore-WioL1Eink-CairnN-DATE.uf2` | e-ink |
-| | `MeshCore-WioL1RoomServer-CairnN-DATE.uf2` | room server (no phone app) |
-| Wio Tracker L2 Pro | `MeshCore-WioL2Pro-CairnN-DATE-full.bin` | first install or recovery, at `0x0` after a full erase |
-| | `MeshCore-WioL2Pro-CairnN-DATE-update.bin` | update, at `0x10000`; also what the online updater installs |
-| Heltec V4 touch | `MeshCore-HeltecV4Touch-CairnN-DATE-full.bin` | first install or recovery, at `0x0` after a full erase |
-| | `MeshCore-HeltecV4Touch-CairnN-DATE-update.bin` | update, at `0x10000`; also what the online updater installs |
-| Heltec T096 | `MeshCore-HeltecT096-CairnN-DATE-ble.uf2` | Bluetooth companion (phone app) |
-| | `MeshCore-HeltecT096-CairnN-DATE-usb.uf2` | USB serial companion |
-
-Updates keep your identity, contacts and settings. A first install on an ESP32 board **erases the device completely**, including any factory firmware.
-
-## Installing
-
-### nRF52840 boards (L1 Pro, T096): UF2
-
-Connect USB and double-tap **Reset**. A USB drive appears. Copy the `.uf2` onto it; the board reboots by itself when the copy finishes. A copy that "finishes" in about a second with an error was cut short: do it again.
-
-### ESP32-S3 boards (L2 Pro, Heltec V4): esptool or browser
-
-**Browser:** open [Espressif's web flasher](https://espressif.github.io/esptool-js/) in Chrome or Edge and connect. First install: **Erase Flash**, then program `-full.bin` at `0x0`. Update: program `-update.bin` at `0x10000`.
-
-**Command line:**
-
-```bash
-pip install esptool
-# first install
-esptool.py --chip esp32s3 erase_flash
-esptool.py --chip esp32s3 -b 921600 write_flash 0x0 MeshCore-<board>-CairnN-DATE-full.bin
-# update
-esptool.py --chip esp32s3 -b 921600 write_flash 0x10000 MeshCore-<board>-CairnN-DATE-update.bin
-```
-
-If the device was last updated over Wi-Fi, it may be running from its second app slot, and a USB write to `0x10000` would be ignored. Write the boot selector with it: `write_flash 0xe000 boot_app0.bin 0x10000 ...-update.bin` (`boot_app0.bin` ships with the Arduino ESP32 core), or use the `-full.bin`.
-
-The boards enter download mode on their own when esptool connects. If not: L2, hold **Boot** and tap **Reset**; Heltec, hold **PRG** and tap **RST**. If the screen still shows the old firmware afterwards, tap Reset once. The first boot after a full erase sits on "Loading..." for a while as it formats storage and creates the node's identity.
-
-### Over Wi-Fi (L2 Pro, Heltec V4)
-
-- **Online** (from Cairn 106): Settings > System > Firmware update > **Check for updates**. The device also checks this repository once a day while on Wi-Fi and shows a notice when a newer build is out. It downloads the board's `-update.bin` over HTTPS, checks its size, SHA-256 and board marker, and installs only after you confirm.
-- **Local:** turn on update mode on the same page and upload the `-update.bin` from a browser at the address it shows.
+[Open an issue](https://github.com/cvhviz/Cairn/issues/new/choose) and pick **Bug report**. The form asks for the board, the build number from the splash screen, how you installed it, and what happened. A serial log helps a lot. Reports on 🧪 preview boards are especially useful, including "it works".
 
 ## Publishing a release (for the online updater)
 
-The devices read `https://api.github.com/repos/cvhviz/Cairn/releases/latest`. For a build to be offered:
+The L2 and Heltec V4 touch builds read `https://api.github.com/repos/cvhviz/Cairn/releases/latest`. For a build to be offered:
 
 - Tag it `cairn-vN`, where N is the build number shown on the splash (it must be higher than the device's own). Publish it as a normal release, not a draft or prerelease.
-- Attach each ESP32 board's `-update.bin` under its exact name, `MeshCore-WioL2Pro-CairnN-DATE-update.bin` and `MeshCore-HeltecV4Touch-CairnN-DATE-update.bin`. GitHub records each file's SHA-256, which the device checks.
+- Attach each touch board's `-update.bin` under its exact name, `MeshCore-WioL2Pro-CairnN-YYYY-MM-DD-update.bin` and `MeshCore-HeltecV4Touch-CairnN-YYYY-MM-DD-update.bin`: nothing between the date and `-update.bin`. GitHub records each file's SHA-256, which the device checks, along with the size and the board's OTA marker inside the image.
+- No other asset may start with `MeshCore-WioL2Pro-Cairn` or `MeshCore-HeltecV4Touch-Cairn` and end in `-update.bin`. Preview boards use their own board names.
 - The release notes are shown on the device before installing, so keep the top of them short and plain.
-
-## Hardware
-
-| Board | Detail |
-|---|---|
-| Wio Tracker L1 Pro | nRF52840, SX1262, L76K GPS, joystick, piezo |
-| Wio Tracker L2 Pro | Wio-S3 (ESP32-S3, 16 MB flash, 8 MB PSRAM), SX1262 (TCXO 3.0 V), 3.2" NV3031B LCD + GT911 touch, L76K GPS, ES8311 speaker, microSD |
-| Heltec V4 + Expansion Kit | ESP32-S3 (16 MB flash, 8 MB PSRAM), SX1262 + front end, 2.8" ST7789 + touch, L76K GPS, piezo, microSD |
-| Heltec T096 | nRF52840, SX1262, 0.96" ST7735 TFT, one button |
 
 ## Relationship to upstream
 
-This is a personal build, not a general-purpose distribution. All core mesh and radio behaviour comes from [MeshCore](https://github.com/meshcore-dev/MeshCore); see that project for protocol documentation, the official flasher, supported hardware and the client apps ([web](https://app.meshcore.nz), [Android](https://play.google.com/store/apps/details?id=com.liamcottle.meshcore.android), [iOS](https://apps.apple.com/us/app/meshcore/id6742354151)). Credit to the MeshCore developers and community for the foundation.
+This is a personal build, not a general-purpose distribution. All core mesh and radio behaviour comes from [MeshCore](https://github.com/meshcore-dev/MeshCore). See that project for protocol documentation, the official flasher, its own list of supported hardware and the client apps. Cairn tracks MeshCore releases; the release notes say which version each build is based on. Credit to the MeshCore developers and community for the foundation.
 
 ## License
 
-MIT, same as upstream MeshCore. The firmware embeds third-party fonts, emoji and libraries under their own licences; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+MIT, same as upstream MeshCore. The firmware embeds third-party fonts, emoji and libraries under their own licences; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) and [licenses/](licenses/).

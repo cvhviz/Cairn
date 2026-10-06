@@ -1,0 +1,49 @@
+name: Board request
+description: Ask for Cairn on another board
+labels: ["board request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Check the [supported boards](https://github.com/cvhviz/Cairn#supported-boards) first: many boards already have a 🧪 preview build that needs someone to test it.
+  - type: input
+    id: board
+    attributes:
+      label: Board
+      placeholder: Maker and model, e.g. LilyGO T-Echo
+    validations:
+      required: true
+  - type: input
+    id: link
+    attributes:
+      label: Link
+      description: The maker's product page or schematic.
+    validations:
+      required: true
+  - type: input
+    id: chip
+    attributes:
+      label: Chip
+      description: nRF52840, ESP32-S3, ESP32, or something else. Say if you're not sure.
+  - type: dropdown
+    id: stock
+    attributes:
+      label: Does stock MeshCore support it?
+      options:
+        - "Yes"
+        - "No"
+        - Not sure
+  - type: dropdown
+    id: test
+    attributes:
+      label: Willing to test builds on your board?
+      options:
+        - "Yes"
+        - "No"
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything else
+      description: Screen, buttons, keyboard, GPS, what you'd like Cairn to do on it.
