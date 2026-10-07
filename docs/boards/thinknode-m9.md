@@ -1,6 +1,6 @@
 # Elecrow ThinkNode M9
 
-✅ Tested on hardware, beta · ESP32-S3 · [install with esptool or the web flasher](../install/esp32-s3.md) · updates over Wi-Fi from the next build
+✅ Tested on hardware, beta · ESP32-S3 · [install with esptool or the web flasher](../install/esp32-s3.md) · updates over Wi-Fi (Settings > System > Firmware update)
 
 The ThinkNode M9 is a handheld with:
 - an ESP32-S3 (16 MB flash, 8 MB PSRAM)
@@ -20,7 +20,7 @@ Cairn runs the same interface as the [Wio Tracker L2 Pro](wio-tracker-l2-pro.md)
 | You want to… | File | How |
 |---|---|---|
 | install Cairn for the first time | `MeshCore-ThinkNodeM9-CairnN-<date>-full.bin` | full erase, then write at `0x0` ([steps](../install/esp32-s3.md)). **Erases everything**: if it runs MeshCore, export your key and contacts in the app first. |
-| update | `MeshCore-ThinkNodeM9-CairnN-<date>-update.bin` | USB at `0x10000`. Online updates (Settings > System > Firmware update) start with the next build. |
+| update | `MeshCore-ThinkNodeM9-CairnN-<date>-update.bin` | USB at `0x10000`, or over Wi-Fi: Settings > System > Firmware update (from Cairn 107) fetches it from the latest release. |
 | recover a device that won't boot | `MeshCore-ThinkNodeM9-CairnN-<date>-full.bin` | full erase, then write at `0x0` |
 
 Write the `-full.bin` or the `-update.bin`, never both. Coming from Elecrow's firmware, Meshtastic or stock MeshCore, use the `-full.bin`.
@@ -52,7 +52,7 @@ Write the `-full.bin` or the `-update.bin`, never both. Coming from Elecrow's fi
 
 ## Features
 
-The L2 interface, as on the [L2 Pro page](wio-tracker-l2-pro.md#features): the sidebar, the Home dashboard, chats with colour emoji, nodes, repeater scan and remote admin, the quick panel, GPS with Off / On / Eco, settings drafts with Cancel and Save, the lock screen and Wi-Fi with the MeshCore app over Wi-Fi. On the M9 also:
+The L2 interface, as on the [L2 Pro page](wio-tracker-l2-pro.md#features): the sidebar, the Home dashboard, chats with colour emoji, nodes, repeater scan and remote admin, the quick panel, GPS with Off / On / Eco, settings drafts with Cancel and Save (the Wi-Fi and Bluetooth switches act at once, from Cairn 108), the lock screen and Wi-Fi with the MeshCore app over Wi-Fi. On the M9 also:
 
 - **Spectrum and Band scan on the LR1110.**
 - **Battery page:** the charge, the voltage and a status line ("On battery · 9h 40m left", "Charging · ~45m to full"), six cells (time left, rate, time in this state, today's low and high, the last full charge, the screen-on share), and a graph over 1 hour, 6 hours, 24 hours or 7 days in % or volts, with markers for plug-in, unplug, full and restarts. OK on the graph puts a cursor at now; left and right move it. The week's history comes back after a restart, once the clock is set.
@@ -66,7 +66,7 @@ The L2 interface, as on the [L2 Pro page](wio-tracker-l2-pro.md#features): the s
 
 - **Battery saver hasn't run on the device yet.** Its savings are estimates from datasheets; treat it as an experiment.
 - **The offline map from microSD hasn't been tried on the M9 yet.** The card itself mounts.
-- **Online updates start with the next build**, since 107 is the M9's first.
+- **Online updates:** Cairn 108 is the M9's first update over Wi-Fi (from 107). The new build starts on trial and goes back to the old one by itself if it fails to start.
 - **Unplugging USB:** whether the status bar switches from the plug to the battery when you unplug hasn't been confirmed yet.
 - **Keyboard light:** if the keyboard controller reports its light brightness as 0 (ours did), Cairn leaves the light to the controller, and the Keyboard light setting has no effect.
 - **Hibernate:** a key may not wake the board. The power slider (off, then on) or RESET always does.

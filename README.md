@@ -4,7 +4,7 @@
 
 **Cairn** is a fork of the [MeshCore](https://github.com/meshcore-dev/MeshCore) companion firmware. Every board is built from one source tree that shares MeshCore's mesh and radio code, and every build works with the official MeshCore apps ([web](https://app.meshcore.nz), [Android](https://play.google.com/store/apps/details?id=com.liamcottle.meshcore.android), [iOS](https://apps.apple.com/us/app/meshcore/id6742354151)).
 
-Builds are numbered. The splash screen shows **BUILD N**, releases are tagged `cairn-vN`, and the files are named `MeshCore-<Board>-CairnN-<date>…`, so you can match a device to a release from its own screen. **Download the files from the [latest release](https://github.com/cvhviz/Cairn/releases/latest).** Cairn 108 is a T-Display SF32-only update: every other board's files are in [Cairn 107](https://github.com/cvhviz/Cairn/releases/tag/cairn-v107). L1 releases from before Cairn are in the [older L1 repository](https://github.com/cvhviz/WioL1Pro-CVHBuild).
+Builds are numbered. The splash screen shows **BUILD N**, releases are tagged `cairn-vN`, and the files are named `MeshCore-<Board>-CairnN-<date>…`, so you can match a device to a release from its own screen. **Download the files from the [latest release](https://github.com/cvhviz/Cairn/releases/latest).** Cairn 108 updates the T-Display SF32 and ThinkNode M9: every other board's files are in [Cairn 107](https://github.com/cvhviz/Cairn/releases/tag/cairn-v107). L1 releases from before Cairn are in the [older L1 repository](https://github.com/cvhviz/WioL1Pro-CVHBuild).
 
 ## Supported boards
 
