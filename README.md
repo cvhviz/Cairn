@@ -28,11 +28,14 @@ Builds are numbered. The splash screen shows **BUILD N**, releases are tagged `c
 
 The boards listed under "Original ESP32" use the original ESP32 rather than the S3. They install the same way; the [ESP32 guide](docs/install/esp32-s3.md#original-esp32-boards) has the one difference.
 
-### SiFli SF32 (install with one double-click)
+### SiFli SF32
+
+> **⏸ Temporarily withdrawn (7 Oct 2026).** The first T-Display SF32 build had problems: the battery didn't charge, the board could restart on USB, Wi-Fi updates couldn't work, and the installer could stall. Its files have been removed from the release while a fixed build with a new, reliable installer is finished. If you already installed it, it keeps working, but it won't charge its battery and may restart on USB. Update when the fixed build is posted.
+
 
 | Board | Interface | Status | Install | Board page |
 |---|---|---|---|---|
-| LilyGO T-Display SF32 + keypad board | 480×480 AMOLED touchscreen, 20-key keypad, its own card-based interface | ✅ | [installer for Mac, Windows, Linux](docs/install/sf32.md) | [T-Display SF32](docs/boards/lilygo-t-display-sf32.md) |
+| LilyGO T-Display SF32 + keypad board | 480×480 AMOLED touchscreen, 20-key keypad, its own card-based interface | ⏸ withdrawn, fix coming | [installer for Mac, Windows, Linux](docs/install/sf32.md) | [T-Display SF32](docs/boards/lilygo-t-display-sf32.md) |
 
 ### Coming soon
 

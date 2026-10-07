@@ -1,5 +1,8 @@
 # LilyGO T-Display SF32 (with the keypad board)
 
+> **⏸ Temporarily withdrawn (7 Oct 2026).** The first T-Display SF32 build had problems: the battery didn't charge, the board could restart on USB, Wi-Fi updates couldn't work, and the installer could stall. Its files have been removed from the release while a fixed build with a new, reliable installer is finished. If you already installed it, it keeps working, but it won't charge its battery and may restart on USB. Update when the fixed build is posted.
+
+
 ✅ Tested on hardware · SiFli SF32LB52 · [install with one double-click](../install/sf32.md) · updates over Wi-Fi
 
 LilyGO's T-Display SF32 has:
