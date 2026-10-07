@@ -15,6 +15,7 @@ body:
         - Seeed Wio Tracker L1 Pro
         - Seeed Wio Tracker L2 Pro
         - Heltec V4 + Expansion Kit (touch)
+        - Elecrow ThinkNode M9
         - Heltec Mesh Node T096
         - LilyGO T-Display SF32
         - A preview board (name it below)

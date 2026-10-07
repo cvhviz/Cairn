@@ -1,6 +1,6 @@
 # Third-party notices
 
-The Cairn firmware (the touch builds for the Wio Tracker L2 Pro, Heltec V4 and T-Display SF32 in particular) includes the following third-party works. Their full licence texts are in [`licenses/`](licenses/).
+The Cairn firmware (the builds for the Wio Tracker L2 Pro, Heltec V4 touch, ThinkNode M9 and T-Display SF32 in particular) includes the following third-party works. Their full licence texts are in [`licenses/`](licenses/).
 
 | Work | Used for | Licence | Text |
 |---|---|---|---|
@@ -20,5 +20,6 @@ The LilyGO T-Display SF32 build and its installer also include:
 | [Font Awesome Free 5](https://github.com/FortAwesome/Font-Awesome), © Fonticons, Inc., via LVGL | Some interface symbols | Icons CC BY 4.0, font SIL OFL 1.1 | [FontAwesome-LICENSE.txt](licenses/FontAwesome-LICENSE.txt) |
 | [DejaVu Sans](https://github.com/dejavu-fonts/dejavu-fonts), © Bitstream, DejaVu changes public domain | Extra glyphs in the SF32 fonts | Bitstream Vera licence | [DejaVu-LICENSE.txt](licenses/DejaVu-LICENSE.txt) |
 | [sftool](https://github.com/OpenSiFli/sftool), © OpenSiFli | The flashing tool bundled, unchanged, in the SF32 `-install.zip` | Apache 2.0 | [sftool-LICENSE.txt](licenses/sftool-LICENSE.txt) |
+| [pyserial](https://github.com/pyserial/pyserial) 3.5, © Chris Liechti | Serial-port access for the installer's helper, bundled unchanged in the SF32 `-install.zip` | BSD 3-Clause | [pyserial-LICENSE.txt](licenses/pyserial-LICENSE.txt) |
 
 Other libraries (RadioLib, the Arduino ESP32 core, ESP-IDF and the audio driver) are linked unmodified under their own permissive licences; see each project's repository.

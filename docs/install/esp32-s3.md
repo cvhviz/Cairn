@@ -1,6 +1,6 @@
 # Installing on ESP32-S3 boards (esptool or web flasher)
 
-For the Wio Tracker L2 Pro, the Heltec V4 touch build and the ESP32 [preview boards](../boards/preview-boards.md).
+For the Wio Tracker L2 Pro, the Heltec V4 touch build, the Elecrow ThinkNode M9 and the ESP32 [preview boards](../boards/preview-boards.md).
 
 Each ESP32 board has two files in a release:
 
@@ -8,6 +8,8 @@ Each ESP32 board has two files in a release:
 |---|---|---|---|
 | `MeshCore-<Board>-CairnN-<date>[-<variant>]-full.bin` | first install, or recovery | `0x0`, after a full erase | **No: erases everything** |
 | `MeshCore-<Board>-CairnN-<date>[-<variant>]-update.bin` | update a device already on Cairn | `0x10000` | Yes |
+
+For example, the ThinkNode M9's are `MeshCore-ThinkNodeM9-CairnN-<date>-full.bin` and `MeshCore-ThinkNodeM9-CairnN-<date>-update.bin`.
 
 **Flash only the `-full.bin` for a first install, never both.** The `-full.bin` already contains the app; writing the `-update.bin` after it isn't needed. Coming from stock MeshCore or other firmware, use the `-full.bin`: its partition layout may not match Cairn's.
 
@@ -21,6 +23,7 @@ Most boards enter download mode on their own when esptool or the web flasher con
 
 | Board | Buttons |
 |---|---|
+| Elecrow ThinkNode M9 | none: download mode is automatic through its USB-serial chip, and it has no Boot button. If it doesn't connect, unplug and replug the cable and try again. |
 | Wio Tracker L2 Pro | hold **Boot**, tap **Reset**, release **Boot** |
 | Heltec V4 (touch or OLED), V3, Wireless Tracker | hold **PRG** (also labelled USER), tap **RST**, release **PRG** |
 | Most other boards | hold **BOOT** (or IO0), tap **RST** / **EN**, release **BOOT** |
@@ -51,7 +54,7 @@ The older form still works: `esptool.py --chip esp32s3 erase_flash`, `esptool.py
 
 ### If the device last updated over Wi-Fi
 
-An L2 or Heltec V4 that installed its last update over Wi-Fi may be running from its second app slot, and a USB write to `0x10000` would then be ignored at boot. Clear the boot selector first, then write the update:
+An L2, Heltec V4 or ThinkNode M9 that installed its last update over Wi-Fi may be running from its second app slot, and a USB write to `0x10000` would then be ignored at boot. Clear the boot selector first, then write the update:
 
 ```bash
 esptool --chip esp32s3 erase-region 0xe000 0x2000
@@ -64,7 +67,7 @@ This keeps your identity and settings. Writing the `-full.bin` after a full eras
 
 A few preview boards (Heltec V2, the LilyGO T-Beam with SX1262 or SX1276, T-LoRa V2.1, MeshAdventurer) use the original ESP32. Use `--chip esp32` instead of `--chip esp32s3`, or leave `--chip` out and let esptool detect it. The offsets are the same: `-full.bin` at `0x0`, `-update.bin` at `0x10000`.
 
-## Over Wi-Fi (L2 Pro and Heltec V4 touch only)
+## Over Wi-Fi (L2 Pro, Heltec V4 touch, and the ThinkNode M9 from its next build)
 
 - **Online:** Settings > System > Firmware update > **Check for updates**. The device also checks this repository once a day while on Wi-Fi and shows a notice when a newer build is out. It downloads the board's `-update.bin` over HTTPS, checks its size, SHA-256 and board marker, and installs only after you confirm.
 - **Local:** turn on update mode on the same page and upload the `-update.bin` from a browser at the address it shows.
@@ -85,7 +88,7 @@ esptool flash-id       # older esptool: esptool.py flash_id
 
 The **Heltec V4 touch build needs a V4-R8** (reports *Embedded PSRAM 8MB*; 16 MB flash, octal PSRAM) **fitted in the Expansion Kit V2** (2.8" touchscreen). A standard V4 reports *2MB* PSRAM and needs the `HeltecV4` [preview build](../boards/preview-boards.md); on a standard V4 the touch image's octal PSRAM setup fails and the board boot-loops. A V4-R8 with only the OLED needs the `HeltecV4R8` preview build. The L2 Pro has 16 MB flash and 8 MB PSRAM on its Wio-S3 module.
 
-**esptool can't connect.** Put the board in download mode by hand (see above), try another cable or USB port, and close anything else holding the serial port (the MeshCore web app, a serial monitor, another flasher tab).
+**esptool can't connect.** Put the board in download mode by hand (see above), try another cable or USB port, and close anything else holding the serial port (the MeshCore web app, a serial monitor, another flasher tab). The ThinkNode M9 has no download-mode buttons: replug it instead, and on Windows install WCH's CH340 driver if no COM port appears.
 
 **The old firmware still runs after an update.** Tap Reset. If it still does, the device was probably on its second app slot: see [If the device last updated over Wi-Fi](#if-the-device-last-updated-over-wi-fi).
 
