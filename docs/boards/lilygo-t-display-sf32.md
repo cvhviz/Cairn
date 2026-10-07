@@ -22,7 +22,7 @@ The files in Cairn 107 were replaced on 7 Oct 2026 with a fixed build: the first
 | You want to… | File | How |
 |---|---|---|
 | install Cairn, or update over USB | `MeshCore-TDisplaySF32-CairnN-<date>-install.zip` | unzip, then double-click the installer for your computer ([steps](../install/sf32.md)). This keeps your identity, contacts and settings. |
-| update over Wi-Fi | `MeshCore-TDisplaySF32-CairnN-<date>-update.bin` | the board fetches it itself: Settings › System › Firmware update (from the next build on) |
+| update over Wi-Fi | `MeshCore-TDisplaySF32-CairnN-<date>-update.bin` | the board fetches it itself: Settings › System › Firmware update (Cairn 107 and later), with the keyboard board attached: it carries the Wi-Fi chip |
 | recover a board that won't start | the same `-install.zip` | hold A for 12 s, then run the installer again. Download mode is in ROM, so it always works. |
 
 ## Features
@@ -86,7 +86,7 @@ The side buttons can be changed in Settings › Controls. Without the keypad boa
 ## Known issues
 
 - **No USB-serial companion.** The board's only USB port is the CH343 console, so connect the MeshCore apps over Bluetooth.
-- **Wi-Fi updates start with the next build.** The fixed files kept the number 107, so a board on the first 107 needs the USB installer once. The update path was tested end to end with a local server; the first update from a GitHub release will be the next build.
+- **Wi-Fi after re-docking.** After the core is taken off the keyboard and docked again, Wi-Fi may not come back by itself. Restart the board (hold A for 3 seconds, Restart) and it reconnects. Wi-Fi updates from GitHub work: 107 to 108 was tested end to end.
 - **The Windows installer hasn't been run on a Windows PC yet.** Please [report](https://github.com/cvhviz/Cairn/issues/new?template=bug_report.yml) how it goes.
 - **No offline map yet.** It's coming in a later release.
 - **The IR transmitter hasn't been checked against a TV yet.** Its codes follow the public IR databases.

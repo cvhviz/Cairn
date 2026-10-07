@@ -4,7 +4,7 @@
 
 **Cairn** is a fork of the [MeshCore](https://github.com/meshcore-dev/MeshCore) companion firmware. Every board is built from one source tree that shares MeshCore's mesh and radio code, and every build works with the official MeshCore apps ([web](https://app.meshcore.nz), [Android](https://play.google.com/store/apps/details?id=com.liamcottle.meshcore.android), [iOS](https://apps.apple.com/us/app/meshcore/id6742354151)).
 
-Builds are numbered. The splash screen shows **BUILD N**, releases are tagged `cairn-vN`, and the files are named `MeshCore-<Board>-CairnN-<date>…`, so you can match a device to a release from its own screen. **Download the files from the [latest release](https://github.com/cvhviz/Cairn/releases/latest).** L1 releases from before Cairn are in the [older L1 repository](https://github.com/cvhviz/WioL1Pro-CVHBuild).
+Builds are numbered. The splash screen shows **BUILD N**, releases are tagged `cairn-vN`, and the files are named `MeshCore-<Board>-CairnN-<date>…`, so you can match a device to a release from its own screen. **Download the files from the [latest release](https://github.com/cvhviz/Cairn/releases/latest).** Cairn 108 is a T-Display SF32-only update: every other board's files are in [Cairn 107](https://github.com/cvhviz/Cairn/releases/tag/cairn-v107). L1 releases from before Cairn are in the [older L1 repository](https://github.com/cvhviz/WioL1Pro-CVHBuild).
 
 ## Supported boards
 
@@ -35,7 +35,7 @@ The boards listed under "Original ESP32" use the original ESP32 rather than the 
 |---|---|---|---|---|
 | LilyGO T-Display SF32 + keypad board | 480×480 AMOLED touchscreen, 20-key keypad, its own card-based interface | ✅ | [installer for Mac, Windows, Linux](docs/install/sf32.md) | [T-Display SF32](docs/boards/lilygo-t-display-sf32.md) |
 
-The T-Display SF32 files were replaced on 7 Oct 2026 with a fixed build and a new installer. If your board has the first SF32 build (6 Oct), install the new one with the [USB installer](docs/install/sf32.md#if-your-board-has-the-first-sf32-build).
+**Cairn 108 (7 Oct 2026) is a T-Display SF32 update:** Wi-Fi updates no longer roll back on their first start, and the board no longer logs a bus error every second while the keyboard is detached. On Cairn 107, update over Wi-Fi with the keyboard board attached: **Settings › System › Firmware update**. If your board has the first SF32 build (6 Oct), use the [USB installer](docs/install/sf32.md#if-your-board-has-the-first-sf32-build).
 
 ### Coming soon
 
