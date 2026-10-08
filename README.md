@@ -121,21 +121,9 @@ Install guides: [nRF52840 (UF2)](docs/install/nrf52-uf2.md) · [ESP32 (esptool o
 
 [![Cairn on the Wio Tracker L2 Pro](docs/promo/01_cairn_hero.jpg)](docs/promo/01_cairn_hero.jpg)
 
-More promo images (free to share) are in [docs/promo](docs/promo).
+More promo images (free to share) are in [docs/promo](docs/promo). **All 19 screens**, one by one: [L2 Pro board page](docs/boards/wio-tracker-l2-pro.md#screens).
 
-### Screens
-
-|                                                                            |                                                                      |                                                                      |
-| -------------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| ![Home](docs/screens/01-home.png)<br>Home                                  | ![Chats](docs/screens/02-chats.png)<br>Chats                         | ![Conversation](docs/screens/03-conversation.png)<br>Conversation    |
-| ![Keyboard](docs/screens/04-keyboard.png)<br>Keyboard                      | ![Nodes](docs/screens/05-nodes.png)<br>Nodes                         | ![Node detail](docs/screens/06-node-detail.png)<br>Node detail       |
-| ![Radio](docs/screens/07-radio.png)<br>Radio                               | ![GPS](docs/screens/08-gps.png)<br>GPS                               | ![Settings](docs/screens/09-settings.png)<br>Settings                |
-| ![Lock screen](docs/screens/10-lock-screen.png)<br>Lock screen             | ![Quick panel](docs/screens/11-quick-panel.png)<br>Quick panel       | ![Spectrum](docs/screens/12-spectrum.png)<br>Spectrum                |
-| ![Band scan](docs/screens/13-band-scan.png)<br>Band scan                   | ![Map](docs/screens/14-map.png)<br>Map                               | ![Repeater scan](docs/screens/15-repeater-scan.png)<br>Repeater scan |
-| ![Repeater admin](docs/screens/16-repeater-admin.png)<br>Repeater admin    | ![Nodes as cards](docs/screens/17-nodes-cards.png)<br>Nodes as cards | ![Channels](docs/screens/18-channels.png)<br>Channels                |
-| ![Firmware update](docs/screens/19-firmware-update.png)<br>Firmware update |                                                                      |                                                                      |
-
-Screens use fictional sample data.
+## Screens on other boards
 
 ### ThinkNode M9 and T-Deck
 

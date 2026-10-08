@@ -6,7 +6,7 @@
 
 Wio-S3 module (ESP32-S3, 16 MB flash, 8 MB PSRAM), SX1262 LoRa (TCXO 3.0 V), 3.2" 320×240 NV3031B LCD with GT911 touch, L76K GPS, ES8311 speaker and microSD.
 
-- [Brochure (PDF)](../Cairn_Wio_L2_Pro_Brochure.pdf) · [User manual (PDF)](../Cairn_Wio_L2_Pro_User_Manual.pdf) · [Screens](../../README.md#screens)
+- [Brochure (PDF)](../Cairn_Wio_L2_Pro_Brochure.pdf) · [User manual (PDF)](../Cairn_Wio_L2_Pro_User_Manual.pdf) · [Screens](#screens)
 - Offline-map tool: [tools/maptiles.py](../../tools/maptiles.py) ([guide](../../tools/MAPTILES.md))
 
 ## Which file
@@ -44,6 +44,22 @@ Write the `-full.bin` or the `-update.bin`, never both. If the device last updat
 - **Sound**: volume and a choice of alert tone per event.
 - **Wake & lock**: tap to wake, auto-lock, and a pocket-safe lock screen.
 - **Wi-Fi**: on-device setup, clock sync, the MeshCore app over Wi-Fi, browser updates, and **online updates** from this repository's releases (checked once a day; nothing installs without your confirmation).
+
+## Screens
+
+The Cairn interface on the L2 Pro's 3.2" touch screen. The Heltec V4 touch, ThinkNode M9 and T-Deck run the same interface.
+
+|                                                                          |                                                                    |                                                                    |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| ![Home](../screens/01-home.png)<br>Home                                  | ![Chats](../screens/02-chats.png)<br>Chats                         | ![Conversation](../screens/03-conversation.png)<br>Conversation    |
+| ![Keyboard](../screens/04-keyboard.png)<br>Keyboard                      | ![Nodes](../screens/05-nodes.png)<br>Nodes                         | ![Node detail](../screens/06-node-detail.png)<br>Node detail       |
+| ![Radio](../screens/07-radio.png)<br>Radio                               | ![GPS](../screens/08-gps.png)<br>GPS                               | ![Settings](../screens/09-settings.png)<br>Settings                |
+| ![Lock screen](../screens/10-lock-screen.png)<br>Lock screen             | ![Quick panel](../screens/11-quick-panel.png)<br>Quick panel       | ![Spectrum](../screens/12-spectrum.png)<br>Spectrum                |
+| ![Band scan](../screens/13-band-scan.png)<br>Band scan                   | ![Map](../screens/14-map.png)<br>Map                               | ![Repeater scan](../screens/15-repeater-scan.png)<br>Repeater scan |
+| ![Repeater admin](../screens/16-repeater-admin.png)<br>Repeater admin    | ![Nodes as cards](../screens/17-nodes-cards.png)<br>Nodes as cards | ![Channels](../screens/18-channels.png)<br>Channels                |
+| ![Firmware update](../screens/19-firmware-update.png)<br>Firmware update |                                                                    |                                                                    |
+
+Screens use fictional sample data.
 
 ## Known issues
 
