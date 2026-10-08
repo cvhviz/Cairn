@@ -75,7 +75,7 @@ The L2 interface, as on the [L2 Pro page](wio-tracker-l2-pro.md#features): the s
 
 - **Battery saver hasn't run on the device yet.** Its savings are estimates from datasheets; treat it as an experiment.
 - **The offline map from microSD hasn't been tried on the M9 yet.** The card itself mounts.
-- **Online updates:** Cairn 108 is the M9's first update over Wi-Fi (from 107). The new build starts on trial and goes back to the old one by itself if it fails to start.
+- **Online updates work:** an M9 updated itself over Wi-Fi from GitHub (107 to 108). A new build starts on trial and goes back to the old one by itself if it fails to start.
 - **Unplugging USB:** whether the status bar switches from the plug to the battery when you unplug hasn't been confirmed yet.
 - **Keyboard light:** if the keyboard controller reports its light brightness as 0 (ours did), Cairn leaves the light to the controller, and the Keyboard light setting has no effect.
 - **Hibernate:** a key may not wake the board. The power slider (off, then on) or RESET always does.

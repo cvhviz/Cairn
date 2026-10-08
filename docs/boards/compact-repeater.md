@@ -47,3 +47,22 @@ Hold **Power save** in Settings. The screen and the TX LED turn off, and the set
 - **Heltec V2, V3, V4, V4-R8, Wireless Tracker (ESP32):** the `-repeater-full.bin` at `0x0` for a first install, or the `-repeater-update.bin` at `0x10000` to update ([ESP32 guide](../install/esp32-s3.md)).
 
 A board that already ran a MeshCore repeater keeps its name, radio settings and password. A board coming from a companion image starts as a new repeater with the default admin password `password`: change it with `password <new>` over serial or remote admin.
+
+## Example setup (US)
+
+A new repeater starts on the European default channel (869.618 MHz). Over USB serial (115200 baud, any serial terminal or the MeshCore web flasher's console), set it up for the US 915 MHz band like this, with your own name, password and location:
+
+```
+set name Ridgetop Repeater
+set radio 910.525,62.5,7,5
+set tx 9
+password MyAdminPass
+set lat 35.1234
+set lon -97.5678
+reboot
+```
+
+- `set radio` is frequency (MHz), bandwidth (kHz), spreading factor and coding rate: `910.525,62.5,7,5` is the common US/Canada MeshCore channel. Use whatever your local mesh uses; every node must match.
+- `set tx` is the radio chip's output in dBm (on the T096 and Heltec V4, ~13 dB of amplifier gain comes on top). Keep the result within your local limits.
+- `reboot` applies the radio change. After it, `advert` (or **Send advert** on the screen) announces the repeater to the mesh.
+- Optional: `set flood.advert.interval 12` announces it across the whole mesh every 12 hours (3–168), `set advert.interval 240` to its direct neighbours every 4 hours (minutes, up to 240), and `set repeat off` makes it listen without relaying.

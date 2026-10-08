@@ -68,7 +68,9 @@ This keeps your identity and settings. Writing the `-full.bin` after a full eras
 
 A few preview boards (Heltec V2, the LilyGO T-Beam with SX1262 or SX1276, T-LoRa V2.1, MeshAdventurer) use the original ESP32. Use `--chip esp32` instead of `--chip esp32s3`, or leave `--chip` out and let esptool detect it. The offsets are the same: `-full.bin` at `0x0`, `-update.bin` at `0x10000`.
 
-## Over Wi-Fi (L2 Pro, Heltec V4 touch, ThinkNode M9, and the T-Deck from its next build)
+The [compact repeater](../boards/compact-repeater.md) images for the Heltec V2, V3, V4, V4-R8 and Wireless Tracker install the same way: `-repeater-full.bin` at `0x0` for a first install, `-repeater-update.bin` at `0x10000` to update. They don't update over Wi-Fi.
+
+## Over Wi-Fi (L2 Pro, Heltec V4 touch, ThinkNode M9, T-Deck)
 
 - **Online:** Settings > System > Firmware update > **Check for updates**. The device also checks this repository once a day while on Wi-Fi and shows a notice when a newer build is out. It downloads the board's `-update.bin` over HTTPS, checks its size, SHA-256 and board marker, and installs only after you confirm.
 - **Local:** turn on update mode on the same page and upload the `-update.bin` from a browser at the address it shows.
