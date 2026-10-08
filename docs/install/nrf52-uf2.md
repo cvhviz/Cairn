@@ -4,7 +4,7 @@ For the Wio Tracker L1 Pro, the Heltec T096 and the nRF52840 [preview boards](..
 
 ## Steps
 
-1. Download your board's `.uf2` from the [latest release](https://github.com/cvhviz/Cairn/releases/latest) (the nRF52840 companion images, L1 Pro and T096, are in [Cairn 107](https://github.com/cvhviz/Cairn/releases/tag/cairn-v107); the latest release, Cairn 109, carries the T096 and T114 [compact repeater](../boards/compact-repeater.md) images). Your [board page](../../README.md#supported-boards) says which one.
+1. Download your board's `.uf2` from the [latest release](https://github.com/cvhviz/Cairn/releases/latest) (the nRF52840 companion images, L1 Pro and T096, are in [Cairn 107](https://github.com/cvhviz/Cairn/releases/tag/cairn-v107); the latest release, Cairn 110, carries the T096 and T114 [compact repeater](../boards/compact-repeater.md) images). Your [board page](../../README.md#supported-boards) says which one.
 2. Connect the board over USB with a data cable (charge-only cables are common).
 3. **Double-tap Reset** (on the T096 the button is marked `RST`). A USB drive appears, named after the board's bootloader.
 4. Copy the `.uf2` onto the drive. The board reboots by itself when the copy finishes, and the drive disappears. That's normal.

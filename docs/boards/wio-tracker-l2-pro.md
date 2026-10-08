@@ -40,7 +40,7 @@ Write the `-full.bin` or the `-update.bin`, never both. If the device last updat
 - **Spectrum and band scan**: your channel over 10 s to 1 h, and a sweep of the whole band with a waterfall.
 - **Quick panel**: Wi-Fi, Bluetooth, GPS and sound toggles, lock, flashlight, advert, brightness and volume.
 - **GPS**: position in ft/mph with a course compass, Off / On / Eco modes, and an **offline map** from microSD tiles with pinch to zoom.
-- **Settings**: every change is a draft with Cancel and Save, except the Wi-Fi and Bluetooth switches, which act at once (from Cairn 108); destructive actions need a hold plus a confirmation.
+- **Settings**: every change is a draft with Cancel and Save, except the Wi-Fi and Bluetooth switches (from Cairn 108) and the GPS mode (from Cairn 110), which act at once; destructive actions need a hold plus a confirmation. **Settings › Radio** shows TX power and every LoRa setting (preset, frequency, bandwidth, spreading factor, coding rate), each editable, with a typed frequency for a custom radio (from Cairn 110).
 - **Sound**: volume and a choice of alert tone per event.
 - **Wake & lock**: tap to wake, auto-lock, and a pocket-safe lock screen.
 - **Wi-Fi**: on-device setup, clock sync, the MeshCore app over Wi-Fi, browser updates, and **online updates** from this repository's releases (checked once a day; nothing installs without your confirmation).

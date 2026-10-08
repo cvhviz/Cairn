@@ -8,15 +8,17 @@ Builds are numbered: the splash screen shows **BUILD N**, releases are tagged `c
 
 **Download the files from the [latest release](https://github.com/cvhviz/Cairn/releases/latest).** L1 releases from before Cairn are in the [older L1 repository](https://github.com/cvhviz/WioL1Pro-CVHBuild).
 
-## Latest: Cairn 109 (7 Oct 2026)
+## Latest: Cairn 110 (8 Oct 2026)
 
-- **T-Deck:** sound works, through its speaker: message chimes, tones and a volume setting.
-- **Offline maps move to `cairn/maps/<name>/` on the microSD card** (they were in `l2map/`). Move each map folder into `cairn/maps/`, or build it again with [tools/maptiles.py](tools/maptiles.py), which now writes there. **Erase card** now labels the card CAIRN.
-- **New: compact repeater images** for the Heltec T096, T114, V2, V3, V4, V4-R8 and Wireless Tracker V1/V2: the standard repeater with a minimal screen (Status, Spectrum, a few Settings) a power save that turns the screen and TX LED off (a double-click wakes it), and power off by holding the button on Status. See [Compact repeater](docs/boards/compact-repeater.md).
-- **Updating:** L2 Pro, Heltec V4 touch, ThinkNode M9 and T-Deck on Cairn 108 update over Wi-Fi in **Settings › System › Firmware update**.
+- **Radio settings show every LoRa setting:** Settings › Radio keeps TX power at the top, then the preset, frequency, bandwidth, spreading factor and coding rate, each editable on the device. Pick a preset, or type any frequency for a custom radio; the Radio card shows a custom frequency instead of "Custom".
+- **GPS page acts at once:** Off, On and Eco apply as you tap them, like the quick panel's GPS tile. No Save.
+- **Keyboard light level** on the T-Deck and ThinkNode M9: a slider under Brightness in Settings › Display, and one in the quick panel between brightness and volume (Off, 10–100%). The T-Deck's keyboard stays lit while the screen is on; the M9's controller lights its keys at a key press for 10 s, now at your level.
+- **ThinkNode M9:** fixes a keyboard light that stayed dark after an update or a restart from power-off.
+- **T-Deck:** Space is the customizable button. Space and double Space run the actions in Settings › Controls › Buttons (Quick panel and New message by default), outside a text field.
+- **Updating:** L2 Pro, Heltec V4 touch, ThinkNode M9 and T-Deck on Cairn 109 update over Wi-Fi in **Settings › System › Firmware update**. The compact repeater images are rebuilt as Cairn 110.
 - **Other boards:** the T-Display SF32 stays on [Cairn 108](https://github.com/cvhviz/Cairn/releases/tag/cairn-v108); the nRF52840 boards (L1 Pro, T096) and the preview boards stay on [Cairn 107](https://github.com/cvhviz/Cairn/releases/tag/cairn-v107).
 
-Cairn 108 added the T-Deck, the new Battery page on the L2 Pro and Heltec V4 touch, Wi-Fi and Bluetooth switches that act at once, and the T-Display SF32 fixes; see its [release notes](https://github.com/cvhviz/Cairn/releases/tag/cairn-v108).
+Cairn 109 added T-Deck sound, moved offline maps to `cairn/maps/<name>/` on the microSD card, and added the [compact repeater](docs/boards/compact-repeater.md) images; see its [release notes](https://github.com/cvhviz/Cairn/releases/tag/cairn-v109).
 
 ## Supported boards
 

@@ -65,7 +65,7 @@ The L2 interface, as on the [L2 Pro page](wio-tracker-l2-pro.md#features): the s
 
 - **Spectrum and Band scan on the LR1110.**
 - **Battery page:** the charge, the voltage and a status line ("On battery · 9h 40m left", "Charging · ~45m to full"), six cells (time left, rate, time in this state, today's low and high, the last full charge, the screen-on share), and a graph over 1 hour, 6 hours, 24 hours or 7 days in % or volts, with markers for plug-in, unplug, full and restarts. OK on the graph puts a cursor at now; left and right move it. The week's history comes back after a restart, once the clock is set.
-- **Keyboard light** (Settings > Display > Power): Auto, where the keyboard lights while you type and goes dark with the screen, or Off.
+- **Keyboard light** (Settings > Display, under Brightness, and the quick panel's keyboard slider): the level the keys light at, or Off. The keyboard controller lights the keys at a key press for 10 s; they stay dark while the screen is dark or locked.
 - **Battery saver** (Settings > Display > Power, off by default, beta): while the screen is dark it turns Bluetooth off and lets the chip sleep between radio packets. A key still wakes the screen. Turning Bluetooth back on restarts the device.
 - **Automatic power-off** below 3.3 V on battery, to protect the cell.
 - **MIC** turns the screen off.
@@ -77,7 +77,6 @@ The L2 interface, as on the [L2 Pro page](wio-tracker-l2-pro.md#features): the s
 - **The offline map from microSD hasn't been tried on the M9 yet.** The card itself mounts.
 - **Online updates work:** an M9 updated itself over Wi-Fi from GitHub (107 to 108). A new build starts on trial and goes back to the old one by itself if it fails to start.
 - **Unplugging USB:** whether the status bar switches from the plug to the battery when you unplug hasn't been confirmed yet.
-- **Keyboard light:** if the keyboard controller reports its light brightness as 0 (ours did), Cairn leaves the light to the controller, and the Keyboard light setting has no effect.
 - **Hibernate:** a key may not wake the board. The power slider (off, then on) or RESET always does.
 - **Battery percentage:** the curve for the M9's 4.35 V cell is provisional until a full discharge is measured. While Wi-Fi is on the battery can't be read, so the Battery page says "Reading paused · Wi-Fi".
 - **Not reachable by keys yet:** the Home header's long press (Settings > Clock gets there), a single card in the Nodes cards view, and the Spectrum plots' tap-for-readout.
