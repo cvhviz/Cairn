@@ -1,6 +1,6 @@
 # Third-party notices
 
-The Cairn firmware (the builds for the Wio Tracker L2 Pro, Heltec V4 touch, ThinkNode M9 and T-Display SF32 in particular) includes the following third-party works. Their full licence texts are in [`licenses/`](licenses/).
+The Cairn firmware (the builds for the Wio Tracker L2 Pro, Heltec V4 touch, ThinkNode M9, T-Deck and T-Display SF32 in particular) includes the following third-party works. Their full licence texts are in [`licenses/`](licenses/).
 
 | Work | Used for | Licence | Text |
 |---|---|---|---|
@@ -9,6 +9,7 @@ The Cairn firmware (the builds for the Wio Tracker L2 Pro, Heltec V4 touch, Thin
 | [Noto Emoji](https://github.com/googlefonts/noto-emoji), © Google LLC | Colour emoji, embedded as downscaled bitmaps | SIL Open Font License 1.1 (the repository's README also lists Apache 2.0 for image resources) | [NotoEmoji-LICENSE.txt](licenses/NotoEmoji-LICENSE.txt) |
 | [region-flags](https://github.com/googlefonts/noto-emoji/tree/main/third_party/region-flags), via Noto Emoji | The 🇺🇸 flag | Public domain or exempt from copyright | [region-flags-LICENSE.txt](licenses/region-flags-LICENSE.txt) |
 | [LovyanGFX](https://github.com/lovyan03/LovyanGFX), © lovyan03 and contributors | Display and touch driver | FreeBSD | [LovyanGFX-license.txt](licenses/LovyanGFX-license.txt) |
+| [QRCode](https://github.com/ricmoo/QRCode), © 2017 Richard Moore | The contact QR code (from Cairn 111) | MIT | [QRCode-LICENSE.txt](licenses/QRCode-LICENSE.txt) |
 
 The LilyGO T-Display SF32 build and its installer also include:
 

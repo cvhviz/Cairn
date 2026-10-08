@@ -8,17 +8,18 @@ Builds are numbered: the splash screen shows **BUILD N**, releases are tagged `c
 
 **Download the files from the [latest release](https://github.com/cvhviz/Cairn/releases/latest).** L1 releases from before Cairn are in the [older L1 repository](https://github.com/cvhviz/WioL1Pro-CVHBuild).
 
-## Latest: Cairn 110 (8 Oct 2026)
+## Latest: Cairn 111 (8 Oct 2026)
 
-- **Radio settings show every LoRa setting:** Settings › Radio keeps TX power at the top, then the preset, frequency, bandwidth, spreading factor and coding rate, each editable on the device. Pick a preset, or type any frequency for a custom radio; the Radio card shows a custom frequency instead of "Custom".
-- **GPS page acts at once:** Off, On and Eco apply as you tap them, like the quick panel's GPS tile. No Save.
-- **Keyboard light level** on the T-Deck and ThinkNode M9: a slider under Brightness in Settings › Display, and one in the quick panel between brightness and volume (Off, 10–100%). The T-Deck's keyboard stays lit while the screen is on; the M9's controller lights its keys at a key press for 10 s, now at your level.
-- **ThinkNode M9:** fixes a keyboard light that stayed dark after an update or a restart from power-off.
-- **T-Deck:** Space is the customizable button. Space and double Space run the actions in Settings › Controls › Buttons (Quick panel and New message by default), outside a text field.
-- **Updating:** L2 Pro, Heltec V4 touch, ThinkNode M9 and T-Deck on Cairn 109 update over Wi-Fi in **Settings › System › Firmware update**. The compact repeater images are rebuilt as Cairn 110.
-- **Other boards:** the T-Display SF32 stays on [Cairn 108](https://github.com/cvhviz/Cairn/releases/tag/cairn-v108); the nRF52840 boards (L1 Pro, T096) and the preview boards stay on [Cairn 107](https://github.com/cvhviz/Cairn/releases/tag/cairn-v107).
+- **Themes:** a new **Settings › Appearance** tile with nine themes, previewed live: Dark, Neon, Light, Sunlight (highest contrast, for outdoors), Night (reds and ambers), Ocean, Cartoon, Red Radar and Green Radar.
+- **Fewer Save buttons:** Appearance, Display, Sound, Buttons, Wake & lock and Clock apply as you change them. Radio, Bluetooth, the PIN, Wi-Fi, Join channel and Profile still ask first.
+- **Share a contact by QR code:** tap the short key on a node's page (or your own in About) for a QR code the MeshCore apps scan to add the contact.
+- **Nodes, Radio and Battery reworked:** CairnOS icons (a walkie-talkie for companions, a mast for repeaters), pebble avatars, node cards with ID and position; the Radio tab as cards with a bigger Advert button; a Path hash setting (1–3 bytes per hop); a cleaner Battery page.
+- **GPS data:** an on/off switch on the GPS page, and a page of every GPS reading (satellites, HDOP, grid square, GPS time, NMEA). The T-Deck finds a 9600 or 38400 baud GPS by itself.
+- **Clock:** "Always set" for internet time, from the question or in Settings › Clock.
+- **Updating:** L2 Pro, Heltec V4 touch, ThinkNode M9 and T-Deck on Cairn 110 update over Wi-Fi in **Settings › System › Firmware update**. The T096 companion is updated (last built for 107) and the compact repeaters are rebuilt as Cairn 111.
+- **Other boards:** the T-Display SF32 stays on [Cairn 108](https://github.com/cvhviz/Cairn/releases/tag/cairn-v108); the L1 Pro and the preview boards on [Cairn 107](https://github.com/cvhviz/Cairn/releases/tag/cairn-v107).
 
-Cairn 109 added T-Deck sound, moved offline maps to `cairn/maps/<name>/` on the microSD card, and added the [compact repeater](docs/boards/compact-repeater.md) images; see its [release notes](https://github.com/cvhviz/Cairn/releases/tag/cairn-v109).
+Cairn 110 showed every LoRa setting in Settings › Radio and added a keyboard light level on the T-Deck and M9; see its [release notes](https://github.com/cvhviz/Cairn/releases/tag/cairn-v110).
 
 ## Supported boards
 
@@ -92,8 +93,9 @@ Want another board? [Ask for it](https://github.com/cvhviz/Cairn/issues/new?temp
 | Spectrum and band scan        |    –     |   ✅   |       ✅        |      ✅      |     ✅      |       ✅       | spectrum |    –    |
 | Repeater scan and admin       |    –     |   ✅   |       ✅        |      ✅      |     ✅      |       ✅       |    –     |    –    |
 | USB-serial companion          |    –     |   –    |        –        |      –       |      –      |       –        |    ✅    |   ✅    |
+| Contact QR code               |    –     |   ✅   |       ✅        |      ✅      |     ✅      |       –        |    –     |    –    |
 | Room server image             |    ✅    |   –    |        –        |      –       |      –      |       –        |    –     |    –    |
-| Colour themes                 |    –     |   –    |        –        |      –       |      –      |       –        |    ✅    | some ⁴  |
+| Colour themes                 |    –     |   ✅   |       ✅        |      ✅      |     ✅      |       –        |    ✅    | some ⁴  |
 | Music, voice, IR, sensors     |    –     |   –    |        –        |      –       |      –      |       ✅       |    –     |    –    |
 | Imperial units, 12-hour clock |    ✅    |   ✅   |       ✅        |      ✅      |     ✅      |       ✅       |    ✅    |   ✅    |
 

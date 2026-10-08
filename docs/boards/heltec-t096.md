@@ -26,6 +26,8 @@ Install, update and recovery all use the same file: double-tap **RST** and copy 
 
 - Themes: Dark, Color, Night, Soft and Stock (Settings > Theme).
 - Spectrum page with a scrolling RSSI history and NF / NOW / PK readouts.
+- Radio page: the frequency in MHz with the TX power, SF / BW / CR in the theme's accent, and the noise floor (from Cairn 111).
+- GPS page: fix, satellites and HDOP, position, altitude and the Maidenhead grid square (from Cairn 111).
 - Settings: Theme, Screen, Keep on USB, GPS, Bluetooth, Reboot, Hibernate.
 - Cairn splash in your theme's colours, with the build number.
 - Feet and °F, 12-hour clock.

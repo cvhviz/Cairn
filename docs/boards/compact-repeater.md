@@ -48,7 +48,7 @@ Hold the button on **Status**. The screen says *Keep holding to turn off*; after
 
 ## Screenshots
 
-A compact repeater on USB answers `shot` on its serial console with the screen as text rows; [`tools/repeater_shot.py`](../../tools/repeater_shot.py) turns that into a PNG (`--before "ui click"` steps to the next page first).
+A compact repeater built with `-D UI_SERIAL_SHOT` (a screenshot build, not the release images from Cairn 111 on) answers `shot` on its serial console with the screen as text rows; [`tools/repeater_shot.py`](../../tools/repeater_shot.py) turns that into a PNG (`--before "ui click"` steps to the next page first).
 
 ## Install
 

@@ -34,15 +34,18 @@ Write the `-full.bin` or the `-update.bin`, never both. If the device last updat
 - **Home dashboard**: a large clock with sunrise/sunset, temperature and channel-busy readouts, plus live cards for battery, chats, nodes, GPS, radio and network.
 - **Chats**: channels, direct messages and rooms in one list, message bubbles, a full on-screen keyboard with emoji, quick replies and a byte counter.
 - **Colour emoji**: 229 Noto emoji drawn inline in messages, previews and node names.
-- **Nodes**: recent adverts and saved contacts as a list or cards, with hops, last heard and distance. Node detail shows position and bearing, with ping, chat and map.
+- **Nodes**: recent adverts and saved contacts as a list or cards, with hops, last heard, distance, the short ID and position. Companions show a walkie-talkie and repeaters a mast, as in CairnOS. Node detail shows heard, distance, bearing, path, position and the last ping, with ping, chat and map; tap the short key for a **QR code** the MeshCore apps scan to add the contact (from Cairn 111).
 - **Repeater tools**: a repeater scan (who hears you, whom you hear) and remote admin for repeaters and room servers.
-- **Radio**: frequency and settings, airtime per packet, Now/Floor/Peak/Margin meters, a live spectrum and the last packets heard.
+- **Radio**: frequency and settings, Now/Floor/Peak/Margin meters, a live signal graph and the last packets heard, each in its own card, with a large Advert button.
 - **Spectrum and band scan**: your channel over 10 s to 1 h, and a sweep of the whole band with a waterfall.
 - **Quick panel**: Wi-Fi, Bluetooth, GPS and sound toggles, lock, flashlight, advert, brightness and volume.
-- **GPS**: position in ft/mph with a course compass, Off / On / Eco modes, and an **offline map** from microSD tiles with pinch to zoom.
-- **Settings**: every change is a draft with Cancel and Save, except the Wi-Fi and Bluetooth switches (from Cairn 108) and the GPS mode (from Cairn 110), which act at once; destructive actions need a hold plus a confirmation. **Settings › Radio** shows TX power and every LoRa setting (preset, frequency, bandwidth, spreading factor, coding rate), each editable, with a typed frequency for a custom radio (from Cairn 110).
+- **GPS**: position in ft/mph with a course compass, an on/off switch, Off / On / Eco modes, and an **offline map** from microSD tiles with pinch to zoom. Tap the status or any card for **GPS data**: satellites, HDOP, grid square, GPS time and the NMEA stream (from Cairn 111).
+- **Settings**: six tiles (Radio, Connect, Hardware, Location, Appearance, System), each with three lines of what it holds. Appearance, Display, Sound, Buttons, Wake & lock and Clock apply as you change them; Radio, Bluetooth, the PIN, Wi-Fi, Join channel and Profile are drafts with Cancel and Save (from Cairn 111). Destructive actions need a hold plus a confirmation. **Settings › Radio** shows TX power and every LoRa setting (preset, frequency, bandwidth, spreading factor, coding rate), each editable, with a typed frequency for a custom radio, and the **path hash** size (1–3 bytes per hop, from Cairn 111).
+- **Themes** (Settings › Appearance, from Cairn 111): Dark, Neon, Light, Sunlight, Night, Ocean, Cartoon, Red Radar and Green Radar, previewed live.
+- **Battery**: the charge and a since-when line ("On battery since Wed · 16h"), time left, rate, today's range and the screen-on share, and a graph over 1 h to 7 days.
 - **Sound**: volume and a choice of alert tone per event.
 - **Wake & lock**: tap to wake, auto-lock, and a pocket-safe lock screen.
+- **Clock**: 12h / 24h / analog, US time zones or a custom offset, and internet time over Wi-Fi; *Always take internet time* skips the question when the clock is off by over an hour (from Cairn 111).
 - **Wi-Fi**: on-device setup, clock sync, the MeshCore app over Wi-Fi, browser updates, and **online updates** from this repository's releases (checked once a day; nothing installs without your confirmation).
 
 ## Screens
