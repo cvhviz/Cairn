@@ -1,6 +1,6 @@
 # Installing on ESP32-S3 boards (esptool or web flasher)
 
-For the Wio Tracker L2 Pro, the Heltec V4 touch build, the Elecrow ThinkNode M9 and the ESP32 [preview boards](../boards/preview-boards.md).
+For the Wio Tracker L2 Pro, the Heltec V4 touch build, the Elecrow ThinkNode M9, the LilyGO T-Deck and the ESP32 [preview boards](../boards/preview-boards.md).
 
 Each ESP32 board has two files in a release:
 
@@ -24,6 +24,7 @@ Most boards enter download mode on their own when esptool or the web flasher con
 | Board | Buttons |
 |---|---|
 | Elecrow ThinkNode M9 | none: download mode is automatic through its USB-serial chip, and it has no Boot button. If it doesn't connect, unplug and replug the cable and try again. |
+| LilyGO T-Deck / T-Deck Plus | switch it off, hold the **trackball** in (it is BOOT), switch it on, release |
 | Wio Tracker L2 Pro | hold **Boot**, tap **Reset**, release **Boot** |
 | Heltec V4 (touch or OLED), V3, Wireless Tracker | hold **PRG** (also labelled USER), tap **RST**, release **PRG** |
 | Most other boards | hold **BOOT** (or IO0), tap **RST** / **EN**, release **BOOT** |
@@ -54,7 +55,7 @@ The older form still works: `esptool.py --chip esp32s3 erase_flash`, `esptool.py
 
 ### If the device last updated over Wi-Fi
 
-An L2, Heltec V4 or ThinkNode M9 that installed its last update over Wi-Fi may be running from its second app slot, and a USB write to `0x10000` would then be ignored at boot. Clear the boot selector first, then write the update:
+An L2, Heltec V4, ThinkNode M9 or T-Deck that installed its last update over Wi-Fi may be running from its second app slot, and a USB write to `0x10000` would then be ignored at boot. Clear the boot selector first, then write the update:
 
 ```bash
 esptool --chip esp32s3 erase-region 0xe000 0x2000
@@ -67,7 +68,7 @@ This keeps your identity and settings. Writing the `-full.bin` after a full eras
 
 A few preview boards (Heltec V2, the LilyGO T-Beam with SX1262 or SX1276, T-LoRa V2.1, MeshAdventurer) use the original ESP32. Use `--chip esp32` instead of `--chip esp32s3`, or leave `--chip` out and let esptool detect it. The offsets are the same: `-full.bin` at `0x0`, `-update.bin` at `0x10000`.
 
-## Over Wi-Fi (L2 Pro, Heltec V4 touch, and the ThinkNode M9 from its next build)
+## Over Wi-Fi (L2 Pro, Heltec V4 touch, ThinkNode M9, and the T-Deck from its next build)
 
 - **Online:** Settings > System > Firmware update > **Check for updates**. The device also checks this repository once a day while on Wi-Fi and shows a notice when a newer build is out. It downloads the board's `-update.bin` over HTTPS, checks its size, SHA-256 and board marker, and installs only after you confirm.
 - **Local:** turn on update mode on the same page and upload the `-update.bin` from a browser at the address it shows.
