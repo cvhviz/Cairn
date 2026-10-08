@@ -12,7 +12,7 @@ Builds are numbered: the splash screen shows **BUILD N**, releases are tagged `c
 
 - **T-Deck:** sound works, through its speaker: message chimes, tones and a volume setting.
 - **Offline maps move to `cairn/maps/<name>/` on the microSD card** (they were in `l2map/`). Move each map folder into `cairn/maps/`, or build it again with [tools/maptiles.py](tools/maptiles.py), which now writes there. **Erase card** now labels the card CAIRN.
-- **New: compact repeater images** for the Heltec T096, T114, V2, V3, V4, V4-R8 and Wireless Tracker V1/V2: the standard repeater with a minimal screen (Status, Spectrum, a few Settings) and a power save that turns the screen and TX LED off; a double-click wakes it. See [Compact repeater](docs/boards/compact-repeater.md).
+- **New: compact repeater images** for the Heltec T096, T114, V2, V3, V4, V4-R8 and Wireless Tracker V1/V2: the standard repeater with a minimal screen (Status, Spectrum, a few Settings) a power save that turns the screen and TX LED off (a double-click wakes it), and power off by holding the button on Status. See [Compact repeater](docs/boards/compact-repeater.md).
 - **Updating:** L2 Pro, Heltec V4 touch, ThinkNode M9 and T-Deck on Cairn 108 update over Wi-Fi in **Settings › System › Firmware update**.
 - **Other boards:** the T-Display SF32 stays on [Cairn 108](https://github.com/cvhviz/Cairn/releases/tag/cairn-v108); the nRF52840 boards (L1 Pro, T096) and the preview boards stay on [Cairn 107](https://github.com/cvhviz/Cairn/releases/tag/cairn-v107).
 
@@ -63,7 +63,7 @@ The T-Display SF32 sits on its 20-key keypad board and runs its own card-based i
 | [Heltec V2, V3, V4, V4-R8](docs/boards/compact-repeater.md)       | 0.96" OLED       | 🧪      | [esptool / web](docs/install/esp32-s3.md) |
 | [Heltec Wireless Tracker V1, V2](docs/boards/compact-repeater.md) | 0.96" colour TFT | 🧪      | [esptool / web](docs/install/esp32-s3.md) |
 
-The standard MeshCore repeater with a minimal Cairn screen: Status, Spectrum and a few Settings on the one button, and a power save that keeps the screen and TX LED off until a double-click.
+The standard MeshCore repeater with a minimal Cairn screen: Status, Spectrum and a few Settings on the one button, and a power save that keeps the screen and TX LED off until a double-click. Holding the button on Status (~3 s, then release) turns it off; a press turns it back on.
 
 | | | |
 |---|---|---|

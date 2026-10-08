@@ -29,7 +29,7 @@ One button. **Click** moves to the next page; **hold** acts.
 
 | Page | Shows | Hold |
 |---|---|---|
-| **Status** | repeat on/off, the channel, packets sent and heard, neighbours, noise floor, uptime, battery | — |
+| **Status** | repeat on/off, the channel, packets sent and heard, neighbours, noise floor, uptime, battery | turn off (keep holding, see [Turning off](#turning-off)) |
 | **Spectrum** | the channel's signal over the last ~16 seconds, with the noise floor, the latest and the peak level | send an advert |
 | **Settings** | Repeat (on/off), TX power, Send advert, Power save, Reboot | change or run the selected row |
 
@@ -40,6 +40,14 @@ The screen turns off after 30 seconds (2 minutes on Spectrum); the first press o
 ## Power save
 
 Hold **Power save** in Settings. The screen and the TX LED turn off, and the setting is kept across reboots and power cuts, so a deployed repeater stays dark. **Double-click** the button to wake it; single clicks and holds are ignored while it is dark.
+
+## Turning off
+
+Hold the button on **Status**. The screen says *Keep holding to turn off*; after about 3 seconds it says *Release to turn off*, and letting go turns the repeater off (screen, radio and LEDs). Letting go earlier cancels. Press the button to turn it back on: it boots as a normal repeater with its settings.
+
+## Screenshots
+
+A compact repeater on USB answers `shot` on its serial console with the screen as text rows; [`tools/repeater_shot.py`](../../tools/repeater_shot.py) turns that into a PNG (`--before "ui click"` steps to the next page first).
 
 ## Install
 
