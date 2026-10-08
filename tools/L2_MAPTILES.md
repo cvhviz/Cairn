@@ -26,14 +26,14 @@ Fetching (`fetch`, or `build` from a network source) only needs the standard lib
   (SDXC) as exFAT by default. An 8–32 GB SDHC card is the recommended size.
 - Find the disk number with `diskutil list`, then run the following. **This erases the whole card.**
   ```sh
-  diskutil eraseDisk FAT32 L2MAP MBRFormat /dev/diskN
+  diskutil eraseDisk FAT32 CAIRN MBRFormat /dev/diskN
   ```
 - The tool never formats anything. When `--out` is a volume root that isn't FAT32, the tool refuses
-  and prints this command for you. You can also build into a plain folder and copy the `l2map`
+  and prints this command for you. You can also build into a plain folder and copy the `cairn`
   folder onto the card yourself.
 - When you write to a volume root, the tool runs `dot_clean -m`, deletes `._*` files and touches
   `.metadata_never_index`, so Spotlight and Finder leave the card clean.
-- Several sets can share one card, up to 8, each in `/l2map/<name>/`. The device picks the set that
+- Several sets can share one card, up to 8, each in `/cairn/maps/<name>/`. The device picks the set that
   covers the view with the most detail. "Choose map…" in the Map's long-press menu pins one.
 
 ## 3. Quick start
@@ -43,8 +43,8 @@ Start with a synthetic test grid. It needs no network and no licence, and every 
 the labels won't line up with your position and the node dots.
 
 ```sh
-python3 tools/l2_maptiles.py synth --center 35.0,-97.0 --radius-mi 5 --zoom 8-16 --out /Volumes/L2MAP
-python3 tools/l2_maptiles.py verify /Volumes/L2MAP/l2map/l2-test
+python3 tools/l2_maptiles.py synth --center 35.0,-97.0 --radius-mi 5 --zoom 8-16 --out /Volumes/CAIRN
+python3 tools/l2_maptiles.py verify /Volumes/CAIRN/cairn/maps/l2-test
 ```
 
 Next, build a real map. USGS topo is public domain and needs no key, but it only covers the US:
@@ -52,13 +52,13 @@ Next, build a real map. USGS topo is public domain and needs no key, but it only
 ```sh
 python3 tools/l2_maptiles.py estimate --center 35.0,-97.0 --radius-mi 10 --zoom 8-16
 python3 tools/l2_maptiles.py build --preset usgs:topo --center 35.0,-97.0 --radius-mi 10 --zoom 8-16 \
-    --out /Volumes/L2MAP --name okc-topo --title "OKC topo"
-python3 tools/l2_maptiles.py verify /Volumes/L2MAP/l2map/okc-topo
+    --out /Volumes/CAIRN --name okc-topo --title "OKC topo"
+python3 tools/l2_maptiles.py verify /Volumes/CAIRN/cairn/maps/okc-topo
 ```
 
 `build` prints the estimate and asks `Proceed? [y/N]`; `--yes` skips the question. It then fetches
 into the cache, converts, and writes the set atomically: everything goes into
-`l2map/.okc-topo.partial/`, which is renamed only at the end. Downloads are resumable. If you hit
+`cairn/maps/.okc-topo.partial/`, which is renamed only at the end. Downloads are resumable. If you hit
 Ctrl-C or the request limit, the tool prints the exact command to resume, and tiles already fetched
 are never requested again.
 
@@ -68,17 +68,17 @@ Other sources:
 # Geoapify (free key from geoapify.com; OSM data). Their @2x tiles cut in four need 4x fewer requests:
 export GEOAPIFY_API_KEY=...            # or --key; never printed or written anywhere
 python3 tools/l2_maptiles.py build --preset geoapify:osm-bright --hidpi-split \
-    --center 35.0,-97.0 --radius-mi 10 --zoom 8-17 --out /Volumes/L2MAP --name okc-street
+    --center 35.0,-97.0 --radius-mi 10 --zoom 8-17 --out /Volumes/CAIRN --name okc-street
 
 # A raster MBTiles file you are allowed to use (its bounds and attribution come from its metadata)
 python3 tools/l2_maptiles.py build --mbtiles region.mbtiles --from-mbtiles-bounds --zoom 8-15 \
-    --out /Volumes/L2MAP --name region
+    --out /Volumes/CAIRN --name region
 
 # Vector (pbf) MBTiles: render them to raster on your own machine first, then fetch from localhost
 docker run --rm -p 8080:8080 -v "$PWD":/data maptiler/tileserver-gl --mbtiles region.mbtiles
 python3 tools/l2_maptiles.py build --preset "local:http://127.0.0.1:8080/styles/basic-preview/{z}/{x}/{y}.png" \
     --attribution "© OpenMapTiles © OpenStreetMap contributors" --bbox -97.2,34.9,-96.8,35.2 --zoom 8-16 \
-    --out /Volumes/L2MAP --name okc-vector
+    --out /Volumes/CAIRN --name okc-vector
 ```
 
 ## 4. Commands
@@ -88,9 +88,9 @@ python3 tools/l2_maptiles.py build --preset "local:http://127.0.0.1:8080/styles/
 | `presets` | Lists the sources, their terms URLs, the date the terms were checked (2026-10-01), max zoom, default rate and @2x support, plus the refused hosts. |
 | `estimate AREA --zoom A-B [SOURCE] [--format] [--sample K]` | Prints a per-zoom table: tiles, ft/px, miles across the 320 px screen, requests still needed (tiles not yet cached), MB, time, and quota days for Geoapify. `--sample K` converts K tiles per zoom to measure MB instead of guessing, fetching them if they aren't cached. |
 | `fetch AREA --zoom A-B [SOURCE] [NET]` | Downloads into the cache only. It's resumable. |
-| `build AREA --zoom A-B [SOURCE] [CONVERT] --out PATH --name SLUG` | Fetches what's missing (skip with `--no-fetch`), converts, and writes `PATH/l2map/SLUG/`. `--overwrite` replaces an existing set. `--title` (24 bytes or less) is the name shown on the device. |
+| `build AREA --zoom A-B [SOURCE] [CONVERT] --out PATH --name SLUG` | Fetches what's missing (skip with `--no-fetch`), converts, and writes `PATH/cairn/maps/SLUG/`. `--overwrite` replaces an existing set. `--title` (24 bytes or less) is the name shown on the device. |
 | `synth AREA --zoom A-B --out PATH [--name l2-test]` | Writes the offline test grid (16 colours or fewer, attribution "Synthetic test grid"). |
-| `verify PATH/l2map/NAME` | Checks the manifest, `cov.*`, every block header and index, and decodes every record. It reports coverage per zoom and prints the name hash (the `map_set` pref). It exits 1 on any error. |
+| `verify PATH/cairn/maps/NAME` | Checks the manifest, `cov.*`, every block header and index, and decodes every record. It reports coverage per zoom and prints the name hash (the `map_set` pref). It exits 1 on any error. |
 | `selftest` | Runs the golden vectors G1–G3 and R1, the Mercator goldens, block dedupe and the denylist. It exits 0 or 1. |
 
 **AREA:**
@@ -195,11 +195,11 @@ takes seconds to a few minutes.
 ## 7. Card format (summary; FRAMEWORK.md §16 is authoritative)
 
 ```
-/l2map/<name>/manifest.txt               <name> = [a-z0-9-]{1,24}, the set's identity
-/l2map/<name>/<z>/<bx>_<by>.l2t          16x16 tiles per file: bx = tx >> 4, by = ty >> 4 (XYZ, y down)
+/cairn/maps/<name>/manifest.txt               <name> = [a-z0-9-]{1,24}, the set's identity
+/cairn/maps/<name>/<z>/<bx>_<by>.l2t          16x16 tiles per file: bx = tx >> 4, by = ty >> 4 (XYZ, y down)
 ```
 
-Entries under `/l2map` whose names start with `.` are ignored. That covers partial builds and
+Entries under `/cairn/maps` whose names start with `.` are ignored. That covers partial builds and
 AppleDouble files.
 
 **`manifest.txt`:**

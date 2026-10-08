@@ -8,14 +8,14 @@ Builds are numbered: the splash screen shows **BUILD N**, releases are tagged `c
 
 **Download the files from the [latest release](https://github.com/cvhviz/Cairn/releases/latest).** L1 releases from before Cairn are in the [older L1 repository](https://github.com/cvhviz/WioL1Pro-CVHBuild).
 
-## Latest: Cairn 108 (7 Oct 2026)
+## Latest: Cairn 109 (7 Oct 2026)
 
-- **New board:** LilyGO T-Deck / T-Deck Plus (beta), the Cairn interface by touch, keyboard and trackball.
-- **L2 Pro and Heltec V4 touch:** the new Battery page (cards above a detailed graph, time left, uptime), a cleaner look across the pages, and an empty-state message in Chats.
-- **L2 Pro, Heltec V4 touch, ThinkNode M9, T-Deck:** the Wi-Fi and Bluetooth switches act at once, with no Save. Turning Bluetooth off while your phone is linked asks first.
-- **T-Display SF32:** Wi-Fi updates no longer roll back on their first start, and the board stays quiet while the keyboard is detached.
-- **Updating:** boards on Cairn 107 update over Wi-Fi in **Settings › System › Firmware update** (the SF32 with its keyboard board attached). An SF32 on the first build (6 Oct) needs the [USB installer](docs/install/sf32.md#if-your-board-has-the-first-sf32-build) once.
-- **Still on Cairn 107:** the nRF52840 boards (L1 Pro, T096) and the preview boards; their files are in [Cairn 107](https://github.com/cvhviz/Cairn/releases/tag/cairn-v107).
+- **T-Deck:** sound works, through its speaker: message chimes, tones and a volume setting.
+- **Offline maps move to `cairn/maps/<name>/` on the microSD card** (they were in `l2map/`). Move each map folder into `cairn/maps/`, or build it again with [tools/l2_maptiles.py](tools/l2_maptiles.py), which now writes there. **Erase card** now labels the card CAIRN.
+- **Updating:** L2 Pro, Heltec V4 touch, ThinkNode M9 and T-Deck on Cairn 108 update over Wi-Fi in **Settings › System › Firmware update**.
+- **Other boards:** the T-Display SF32 stays on [Cairn 108](https://github.com/cvhviz/Cairn/releases/tag/cairn-v108); the nRF52840 boards (L1 Pro, T096) and the preview boards stay on [Cairn 107](https://github.com/cvhviz/Cairn/releases/tag/cairn-v107).
+
+Cairn 108 added the T-Deck, the new Battery page on the L2 Pro and Heltec V4 touch, Wi-Fi and Bluetooth switches that act at once, and the T-Display SF32 fixes; see its [release notes](https://github.com/cvhviz/Cairn/releases/tag/cairn-v108).
 
 ## Supported boards
 
@@ -79,7 +79,7 @@ Want another board? [Ask for it](https://github.com/cvhviz/Cairn/issues/new?temp
 | Music, voice, IR, sensors     |    –     |   –    |        –        |      –       |      –      |       ✅       |    –     |    –    |
 | Imperial units, 12-hour clock |    ✅    |   ✅   |       ✅        |      ✅      |     ✅      |       ✅       |    ✅    |   ✅    |
 
-¹ Clock sync and online updates; no app link over Wi-Fi. ² From its next build (108 is the T-Deck's first). ³ With the Expansion Kit. ⁴ The colour-screen boards (Wireless Tracker, T1).
+¹ Clock sync and online updates; no app link over Wi-Fi. ² From Cairn 108 on. ³ With the Expansion Kit. ⁴ The colour-screen boards (Wireless Tracker, T1).
 
 ## Which file do I need?
 

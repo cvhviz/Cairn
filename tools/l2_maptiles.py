@@ -5,18 +5,18 @@
 
   python3 tools/l2_maptiles.py presets
   python3 tools/l2_maptiles.py estimate --center 35.0,-97.0 --radius-mi 10 --zoom 8-16
-  python3 tools/l2_maptiles.py synth    --center 35.0,-97.0 --radius-mi 5 --zoom 8-15 --out /Volumes/L2MAP
+  python3 tools/l2_maptiles.py synth    --center 35.0,-97.0 --radius-mi 5 --zoom 8-15 --out /Volumes/CAIRN
   python3 tools/l2_maptiles.py build    --center 35.0,-97.0 --radius-mi 10 --zoom 8-16 \
-                                        --out /Volumes/L2MAP --name okc-topo --title "OKC topo"
-  python3 tools/l2_maptiles.py verify   /Volumes/L2MAP/l2map/okc-topo
+                                        --out /Volumes/CAIRN --name okc-topo --title "OKC topo"
+  python3 tools/l2_maptiles.py verify   /Volumes/CAIRN/cairn/maps/okc-topo
   python3 tools/l2_maptiles.py selftest
 
 The card layout and the .l2t / P8RLE formats are specified in
 examples/companion_radio/ui-l2/FRAMEWORK.md (section 16, "Offline map") and summarised in
 tools/L2_MAPTILES.md. In short:
 
-  /l2map/<name>/manifest.txt               key=value, LF, <= 4096 bytes
-  /l2map/<name>/<z>/<bx>_<by>.l2t          16 x 16 tiles per file; bx = tx >> 4, by = ty >> 4
+  /cairn/maps/<name>/manifest.txt               key=value, LF, <= 4096 bytes
+  /cairn/maps/<name>/<z>/<bx>_<by>.l2t          16 x 16 tiles per file; bx = tx >> 4, by = ty >> 4
 
   .l2t (little-endian): "L2T1" u8 z, u8 fmt (1 P8RLE, 2 RGB565), u16 hdr_sectors = 5, u32 bx, u32 by,
         256 x {u32 sector, u32 bytes} (slot = ((ty & 15) << 4) | (tx & 15)), zero pad to 2560,
@@ -1093,7 +1093,7 @@ def check_volume(out):
         extra = (' exFAT cannot be read by the device (its FAT driver is built without exFAT).'
                  if 'exfat' in fs_type or 'exfat' in fs_name.lower() else '')
         raise Fail('%s is %s, not FAT32.%s Reformat the card (THIS ERASES IT; check the disk number with '
-                   '`diskutil list` first):\n  diskutil eraseDisk FAT32 L2MAP MBRFormat /dev/%s\n'
+                   '`diskutil list` first):\n  diskutil eraseDisk FAT32 CAIRN MBRFormat /dev/%s\n'
                    'or write to a plain folder and copy it onto the card yourself.' % (out, fs_name, extra, disk))
     if 'FAT32' not in fs_name.upper():
         log('warning: %s is %s; FAT32 is the tested layout' % (out, fs_name))
@@ -1121,7 +1121,7 @@ def finish_card(out, setdir, is_volume):
 def manifest_text(m):
     order = ['l2map', 'format', 'minzoom', 'maxzoom', 'bounds', 'attribution', 'attribution_short', 'title',
              'license_url', 'bg', 'dark', 'center']
-    lines = ['# L2 offline map set: tools/l2_maptiles.py, format in ui-l2/FRAMEWORK.md section 16']
+    lines = ['# Cairn offline map set: tools/l2_maptiles.py, format in ui-l2/FRAMEWORK.md section 16']
     for k in order:
         if m.get(k) not in (None, ''):
             lines.append('%s=%s' % (k, m[k]))
@@ -1397,9 +1397,9 @@ def cmd_build(a, synth=False):
     total = check_caps(ranges, a)
     out = os.path.abspath(a.out)
     if not os.path.isdir(out):
-        raise Fail('--out %s is not a folder (the card root, e.g. /Volumes/L2MAP)' % out)
+        raise Fail('--out %s is not a folder (the card root, e.g. /Volumes/CAIRN)' % out)
     is_vol = check_volume(out)
-    l2map = os.path.join(out, 'l2map')
+    l2map = os.path.join(out, 'cairn', 'maps')
     final = os.path.join(l2map, a.name)
     if os.path.exists(final) and not a.overwrite:
         raise Fail('%s exists: pick another --name or add --overwrite' % final)
@@ -1521,8 +1521,9 @@ def cmd_verify(a):
     errs, warns = [], []
     if not NAME_RE.match(name):
         errs.append('folder name %r is not [a-z0-9-]{1,24}' % name)
-    if os.path.basename(os.path.dirname(setdir)) != 'l2map':
-        warns.append('the set should sit at <card>/l2map/%s' % name)
+    parent = os.path.dirname(setdir)
+    if os.path.basename(parent) != 'maps' or os.path.basename(os.path.dirname(parent)) != 'cairn':
+        warns.append('the set should sit at <card>/cairn/maps/%s' % name)
     try:
         with open(os.path.join(setdir, 'manifest.txt'), 'rb') as f:
             mdata = f.read()
@@ -1787,13 +1788,13 @@ def build_parser():
                    help='convert K tiles per zoom to measure the size (fetches them if not cached)')
     sub.add_parser('fetch', parents=[area, source, net, caps], help='download into the cache (resumable)')
     b = sub.add_parser('build', parents=[area, source, net, conv, caps], help='write a map set onto the card')
-    b.add_argument('--out', required=True, metavar='PATH', help='card root (e.g. /Volumes/L2MAP) or a folder')
+    b.add_argument('--out', required=True, metavar='PATH', help='card root (e.g. /Volumes/CAIRN) or a folder')
     b.add_argument('--name', required=True, metavar='SLUG', help='folder name, [a-z0-9-]{1,24}')
     b.add_argument('--title', help='name shown on the device (<= 24 bytes; default --name)')
     b.add_argument('--no-fetch', action='store_true', help='use only tiles already in the cache')
     b.add_argument('--overwrite', action='store_true', help='replace an existing set of the same name')
     s = sub.add_parser('synth', parents=[area], help='OFFLINE test grid (no network, no licence)')
-    s.add_argument('--out', required=True, metavar='PATH', help='card root (e.g. /Volumes/L2MAP) or a folder')
+    s.add_argument('--out', required=True, metavar='PATH', help='card root (e.g. /Volumes/CAIRN) or a folder')
     s.add_argument('--name', default='l2-test', metavar='SLUG', help='folder name (l2-test)')
     s.add_argument('--title', default='Test grid', help='name shown on the device (Test grid)')
     s.add_argument('--format', choices=('p8rle', 'rgb565'), default='p8rle', help='record format (p8rle)')
@@ -1801,7 +1802,7 @@ def build_parser():
     s.add_argument('--overwrite', action='store_true', help='replace an existing set of the same name')
     s.add_argument('--max-tiles', type=int, default=50000, help='refuse bigger jobs (50000)')
     v = sub.add_parser('verify', help='decode every record; check manifest / cov / index')
-    v.add_argument('path', metavar='PATH/l2map/NAME')
+    v.add_argument('path', metavar='PATH/cairn/maps/NAME')
     sub.add_parser('selftest', help='golden vectors G1-G3, R1, Mercator; exit 0/1')
     return p
 
