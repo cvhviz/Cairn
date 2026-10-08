@@ -26,7 +26,7 @@ The same files run on the T-Deck and the T-Deck Plus. Write the `-full.bin` or t
 
 **Download mode.** esptool and the web flasher can usually restart the T-Deck into download mode over USB by themselves. If they can't connect, switch the T-Deck off, hold the trackball in (it is the BOOT button), switch it on, then release it and connect again.
 
-**Coming from another firmware.** Cairn keeps its identity, contacts and settings in the T-Deck's internal flash. Firmwares that keep them on the microSD card (Wadamesh does, in a `meshcomod` folder) don't carry over by themselves: Cairn starts with a new identity. Your files stay on the card. Cairn reads offline maps from the card's `cairn/maps` folder; [tools/l2_maptiles.py](../../tools/l2_maptiles.py) makes them.
+**Coming from another firmware.** Cairn keeps its identity, contacts and settings in the T-Deck's internal flash. Firmwares that keep them on the microSD card (Wadamesh does, in a `meshcomod` folder) don't carry over by themselves: Cairn starts with a new identity. Your files stay on the card. Cairn reads offline maps from the card's `cairn/maps` folder; [tools/maptiles.py](../../tools/maptiles.py) makes them.
 
 ## Known issues
 

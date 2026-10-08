@@ -1,9 +1,8 @@
-# Offline map tiles for the Wio Tracker L2 (microSD)
+# Offline map tiles for Cairn (microSD)
 
-> Works for the Heltec V4 touch build too: it reads the same card format. Clone or download this repository and run the commands below from its top folder (the script is [`tools/l2_maptiles.py`](l2_maptiles.py)). References to `examples/…` and `FRAMEWORK.md` are to files in the firmware source tree, which isn't part of this repository; this guide covers everything you need to make a card.
+> Works for the L2 Pro, Heltec V4 touch, ThinkNode M9 and T-Deck builds: they all read the same card format. Clone or download this repository and run the commands below from its top folder (the script is [`tools/maptiles.py`](maptiles.py)). References to `examples/…` and `FRAMEWORK.md` are to files in the firmware source tree, which isn't part of this repository; this guide covers everything you need to make a card.
 
-`tools/l2_maptiles.py` turns map tiles into the card format the L2 touch UI's **GPS → Map** view
-reads from microSD. The device code lives in `examples/companion_radio/ui-l2/map/`, and the format is
+`tools/maptiles.py` turns map tiles into the card format Cairn's **GPS → Map** view reads from microSD. The device code lives in `examples/companion_radio/ui-l2/map/`, and the format is
 specified in `examples/companion_radio/ui-l2/FRAMEWORK.md` §16 ("Offline map"). The map works fully
 offline: nothing is ever downloaded on the device.
 
@@ -13,8 +12,8 @@ The tool needs Python 3.9 or newer and Pillow. numpy is optional but makes conve
 
 ```sh
 python3 -m venv ~/.venvs/l2tiles && ~/.venvs/l2tiles/bin/pip install Pillow numpy
-alias l2tiles='~/.venvs/l2tiles/bin/python3 tools/l2_maptiles.py'     # optional
-python3 tools/l2_maptiles.py selftest          # golden vectors; should print "selftest: PASS"
+alias l2tiles='~/.venvs/l2tiles/bin/python3 tools/maptiles.py'     # optional
+python3 tools/maptiles.py selftest          # golden vectors; should print "selftest: PASS"
 ```
 
 Fetching (`fetch`, or `build` from a network source) only needs the standard library. `build`,
@@ -43,17 +42,17 @@ Start with a synthetic test grid. It needs no network and no licence, and every 
 the labels won't line up with your position and the node dots.
 
 ```sh
-python3 tools/l2_maptiles.py synth --center 35.0,-97.0 --radius-mi 5 --zoom 8-16 --out /Volumes/CAIRN
-python3 tools/l2_maptiles.py verify /Volumes/CAIRN/cairn/maps/l2-test
+python3 tools/maptiles.py synth --center 35.0,-97.0 --radius-mi 5 --zoom 8-16 --out /Volumes/CAIRN
+python3 tools/maptiles.py verify /Volumes/CAIRN/cairn/maps/l2-test
 ```
 
 Next, build a real map. USGS topo is public domain and needs no key, but it only covers the US:
 
 ```sh
-python3 tools/l2_maptiles.py estimate --center 35.0,-97.0 --radius-mi 10 --zoom 8-16
-python3 tools/l2_maptiles.py build --preset usgs:topo --center 35.0,-97.0 --radius-mi 10 --zoom 8-16 \
+python3 tools/maptiles.py estimate --center 35.0,-97.0 --radius-mi 10 --zoom 8-16
+python3 tools/maptiles.py build --preset usgs:topo --center 35.0,-97.0 --radius-mi 10 --zoom 8-16 \
     --out /Volumes/CAIRN --name okc-topo --title "OKC topo"
-python3 tools/l2_maptiles.py verify /Volumes/CAIRN/cairn/maps/okc-topo
+python3 tools/maptiles.py verify /Volumes/CAIRN/cairn/maps/okc-topo
 ```
 
 `build` prints the estimate and asks `Proceed? [y/N]`; `--yes` skips the question. It then fetches
@@ -67,16 +66,16 @@ Other sources:
 ```sh
 # Geoapify (free key from geoapify.com; OSM data). Their @2x tiles cut in four need 4x fewer requests:
 export GEOAPIFY_API_KEY=...            # or --key; never printed or written anywhere
-python3 tools/l2_maptiles.py build --preset geoapify:osm-bright --hidpi-split \
+python3 tools/maptiles.py build --preset geoapify:osm-bright --hidpi-split \
     --center 35.0,-97.0 --radius-mi 10 --zoom 8-17 --out /Volumes/CAIRN --name okc-street
 
 # A raster MBTiles file you are allowed to use (its bounds and attribution come from its metadata)
-python3 tools/l2_maptiles.py build --mbtiles region.mbtiles --from-mbtiles-bounds --zoom 8-15 \
+python3 tools/maptiles.py build --mbtiles region.mbtiles --from-mbtiles-bounds --zoom 8-15 \
     --out /Volumes/CAIRN --name region
 
 # Vector (pbf) MBTiles: render them to raster on your own machine first, then fetch from localhost
 docker run --rm -p 8080:8080 -v "$PWD":/data maptiler/tileserver-gl --mbtiles region.mbtiles
-python3 tools/l2_maptiles.py build --preset "local:http://127.0.0.1:8080/styles/basic-preview/{z}/{x}/{y}.png" \
+python3 tools/maptiles.py build --preset "local:http://127.0.0.1:8080/styles/basic-preview/{z}/{x}/{y}.png" \
     --attribution "© OpenMapTiles © OpenStreetMap contributors" --bbox -97.2,34.9,-96.8,35.2 --zoom 8-16 \
     --out /Volumes/CAIRN --name okc-vector
 ```

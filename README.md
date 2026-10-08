@@ -11,7 +11,7 @@ Builds are numbered: the splash screen shows **BUILD N**, releases are tagged `c
 ## Latest: Cairn 109 (7 Oct 2026)
 
 - **T-Deck:** sound works, through its speaker: message chimes, tones and a volume setting.
-- **Offline maps move to `cairn/maps/<name>/` on the microSD card** (they were in `l2map/`). Move each map folder into `cairn/maps/`, or build it again with [tools/l2_maptiles.py](tools/l2_maptiles.py), which now writes there. **Erase card** now labels the card CAIRN.
+- **Offline maps move to `cairn/maps/<name>/` on the microSD card** (they were in `l2map/`). Move each map folder into `cairn/maps/`, or build it again with [tools/maptiles.py](tools/maptiles.py), which now writes there. **Erase card** now labels the card CAIRN.
 - **Updating:** L2 Pro, Heltec V4 touch, ThinkNode M9 and T-Deck on Cairn 108 update over Wi-Fi in **Settings › System › Firmware update**.
 - **Other boards:** the T-Display SF32 stays on [Cairn 108](https://github.com/cvhviz/Cairn/releases/tag/cairn-v108); the nRF52840 boards (L1 Pro, T096) and the preview boards stay on [Cairn 107](https://github.com/cvhviz/Cairn/releases/tag/cairn-v107).
 
@@ -55,7 +55,7 @@ The T-Display SF32 sits on its 20-key keypad board and runs its own card-based i
 
 ### Coming soon
 
-- **Map downloads on the device**, straight over Wi-Fi, so you won't need a computer to prepare the offline map card. Until then, [tools/l2_maptiles.py](tools/l2_maptiles.py) builds the card on a computer.
+- **Map downloads on the device**, straight over Wi-Fi, so you won't need a computer to prepare the offline map card. Until then, [tools/maptiles.py](tools/maptiles.py) builds the card on a computer.
 
 Want another board? [Ask for it](https://github.com/cvhviz/Cairn/issues/new?template=board_request.yml).
 
@@ -100,7 +100,7 @@ Install guides: [nRF52840 (UF2)](docs/install/nrf52-uf2.md) · [ESP32 (esptool o
 ## Wio Tracker L2 Pro: brochure, manual and screens
 
 - [Cairn brochure (PDF)](docs/Cairn_Wio_L2_Pro_Brochure.pdf): the firmware, the board and the 3D-printed case, in nine pages.
-- [Cairn user manual (PDF)](docs/Cairn_Wio_L2_Pro_User_Manual.pdf): every screen and setting, explained step by step. The offline-map tool it mentions is [tools/l2_maptiles.py](tools/l2_maptiles.py) ([how to use it](tools/L2_MAPTILES.md)).
+- [Cairn user manual (PDF)](docs/Cairn_Wio_L2_Pro_User_Manual.pdf): every screen and setting, explained step by step. The offline-map tool it mentions is [tools/maptiles.py](tools/maptiles.py) ([how to use it](tools/MAPTILES.md)).
 - The touch features are listed on the [L2 Pro board page](docs/boards/wio-tracker-l2-pro.md). The Heltec V4 touch, ThinkNode M9 and T-Deck run the same interface.
 
 [![Cairn on the Wio Tracker L2 Pro](docs/promo/01_cairn_hero.jpg)](docs/promo/01_cairn_hero.jpg)

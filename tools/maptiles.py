@@ -1,19 +1,19 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: MIT
 # Part of Cairn (https://github.com/cvhviz/Cairn), the MeshCore fork. MIT, like the rest of the repository.
-"""Prepare offline map tiles for the Wio Tracker L2 touch UI (Map view, microSD card).
+"""Prepare offline map tiles for Cairn's map view (L2 Pro, Heltec V4 touch, ThinkNode M9, T-Deck; microSD card).
 
-  python3 tools/l2_maptiles.py presets
-  python3 tools/l2_maptiles.py estimate --center 35.0,-97.0 --radius-mi 10 --zoom 8-16
-  python3 tools/l2_maptiles.py synth    --center 35.0,-97.0 --radius-mi 5 --zoom 8-15 --out /Volumes/CAIRN
-  python3 tools/l2_maptiles.py build    --center 35.0,-97.0 --radius-mi 10 --zoom 8-16 \
+  python3 tools/maptiles.py presets
+  python3 tools/maptiles.py estimate --center 35.0,-97.0 --radius-mi 10 --zoom 8-16
+  python3 tools/maptiles.py synth    --center 35.0,-97.0 --radius-mi 5 --zoom 8-15 --out /Volumes/CAIRN
+  python3 tools/maptiles.py build    --center 35.0,-97.0 --radius-mi 10 --zoom 8-16 \
                                         --out /Volumes/CAIRN --name okc-topo --title "OKC topo"
-  python3 tools/l2_maptiles.py verify   /Volumes/CAIRN/cairn/maps/okc-topo
-  python3 tools/l2_maptiles.py selftest
+  python3 tools/maptiles.py verify   /Volumes/CAIRN/cairn/maps/okc-topo
+  python3 tools/maptiles.py selftest
 
 The card layout and the .l2t / P8RLE formats are specified in
 examples/companion_radio/ui-l2/FRAMEWORK.md (section 16, "Offline map") and summarised in
-tools/L2_MAPTILES.md. In short:
+tools/MAPTILES.md. In short:
 
   /cairn/maps/<name>/manifest.txt               key=value, LF, <= 4096 bytes
   /cairn/maps/<name>/<z>/<bx>_<by>.l2t          16 x 16 tiles per file; bx = tx >> 4, by = ty >> 4
@@ -52,8 +52,8 @@ import urllib.error
 import urllib.parse
 import urllib.request
 
-TOOL = 'l2_maptiles.py 1.0'
-UA_BASE = 'L2MapTiles/1.0 (MeshCore Wio L2 personal offline map%s)'
+TOOL = 'maptiles.py 1.0'
+UA_BASE = 'CairnMapTiles/1.0 (Cairn personal offline map%s)'
 TERMS_CHECKED = '2026-10-01'
 PIP_HINT = 'python3 -m venv ~/.venvs/l2tiles && ~/.venvs/l2tiles/bin/pip install Pillow numpy'
 
@@ -1121,7 +1121,7 @@ def finish_card(out, setdir, is_volume):
 def manifest_text(m):
     order = ['l2map', 'format', 'minzoom', 'maxzoom', 'bounds', 'attribution', 'attribution_short', 'title',
              'license_url', 'bg', 'dark', 'center']
-    lines = ['# Cairn offline map set: tools/l2_maptiles.py, format in ui-l2/FRAMEWORK.md section 16']
+    lines = ['# Cairn offline map set: tools/maptiles.py, format in ui-l2/FRAMEWORK.md section 16']
     for k in order:
         if m.get(k) not in (None, ''):
             lines.append('%s=%s' % (k, m[k]))
@@ -1499,7 +1499,7 @@ def cmd_build(a, synth=False):
     print('wrote %s: %d tiles (%d unique records) in %d block files, %.1f MB, z%d-%d, %s%s' % (
         final, stats['tiles'], stats['records'], stats['blocks'], stats['bytes'] / 1e6, z0, z1, a.format,
         ', %d tiles not available' % stats['absent'] if stats['absent'] else ''))
-    print('name hash (map_set) 0x%08X; check it with: python3 tools/l2_maptiles.py verify %s' % (fnv1a32(a.name), final))
+    print('name hash (map_set) 0x%08X; check it with: python3 tools/maptiles.py verify %s' % (fnv1a32(a.name), final))
     return 0
 
 
@@ -1723,9 +1723,9 @@ def cmd_selftest(a):
 
 # ------------------------------------------------------------------------------------------ main
 def build_parser():
-    p = argparse.ArgumentParser(prog='l2_maptiles.py', description=__doc__.split('\n\n')[0],
+    p = argparse.ArgumentParser(prog='maptiles.py', description=__doc__.split('\n\n')[0],
                                 formatter_class=argparse.RawDescriptionHelpFormatter,
-                                epilog='Details: tools/L2_MAPTILES.md.  Run "COMMAND -h" for a command\'s options.')
+                                epilog='Details: tools/MAPTILES.md.  Run "COMMAND -h" for a command\'s options.')
     sub = p.add_subparsers(dest='cmd', metavar='COMMAND')
 
     area = argparse.ArgumentParser(add_help=False)
