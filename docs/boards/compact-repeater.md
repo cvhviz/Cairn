@@ -17,11 +17,12 @@ A repeater image for small one-button boards with a screen. It is the standard M
 
 ## Screens
 
-Captured on a T096 over USB (the colour TFT boards look the same; the OLED boards draw it in white on black).
+Rendered by the firmware's own drawing code in a desktop simulator, exactly as the T096 panel draws them (shown at 3×), with fictional sample data. The other colour TFT boards look the same; the OLED boards draw it in white on black.
 
 | | | |
 |---|---|---|
-| ![Status](../screens/repeater/t096-status.png)<br>Status | ![Spectrum](../screens/repeater/t096-spectrum.png)<br>Spectrum | ![Settings](../screens/repeater/t096-settings.png)<br>Settings |
+| ![Status: repeating, channel, packets, neighbours, noise floor, uptime](../screens/repeater/t096-status.png)<br>Status | ![Spectrum: channel signal history](../screens/repeater/t096-spectrum.png)<br>Spectrum | ![Settings rows](../screens/repeater/t096-settings.png)<br>Settings |
+| ![Status with repeating turned off](../screens/repeater/t096-repeat-off.png)<br>Repeat off | ![Power save notice](../screens/repeater/t096-powersave.png)<br>Power save notice | ![Reboot waiting for a second hold](../screens/repeater/t096-reboot.png)<br>Reboot confirm |
 
 ## Pages
 

@@ -2,7 +2,7 @@
 
 ✅ Tested on hardware · nRF52840 · [install with UF2](../install/nrf52-uf2.md)
 
-nRF52840, SX1262 LoRa, 0.96" 160×80 ST7735 colour TFT, one button and GPS. Cairn runs a themed one-button interface on it.
+nRF52840, SX1262 LoRa, 0.96" 160×80 ST7735 colour TFT, one button and GPS. Cairn runs a themed one-button interface on it ([screens](#screens)). For a repeater on this board, see [Compact repeater](compact-repeater.md).
 
 ## Which file
 
@@ -29,6 +29,23 @@ Install, update and recovery all use the same file: double-tap **RST** and copy 
 - Settings: Theme, Screen, Keep on USB, GPS, Bluetooth, Reboot, Hibernate.
 - Cairn splash in your theme's colours, with the build number.
 - Feet and °F, 12-hour clock.
+
+## Screens
+
+The companion build with the default Color theme. These were rendered by the firmware's own drawing code in a desktop simulator, exactly as the panel draws them (shown at 3×), with fictional sample data.
+
+| | | |
+|---|---|---|
+| ![Splash: Cairn mark, build and version](../screens/t096/splash.png)<br>Splash | ![Home: unread count and Bluetooth PIN](../screens/t096/home.png)<br>Home | ![Message preview](../screens/t096/message.png)<br>Message |
+| ![Recently heard nodes](../screens/t096/recent.png)<br>Recent | ![Spectrum: RSSI history with NF, NOW and PK](../screens/t096/spectrum.png)<br>Spectrum | ![Radio settings and noise floor](../screens/t096/radio.png)<br>Radio |
+| ![GPS fix, satellites, position and altitude](../screens/t096/gps.png)<br>GPS | ![Settings list](../screens/t096/settings.png)<br>Settings | ![Reboot armed, waiting for a second hold](../screens/t096/settings-reboot.png)<br>Settings · Reboot armed |
+
+### Themes
+
+| | | |
+|---|---|---|
+| ![Home in the Color theme](../screens/t096/theme-color.png)<br>Color (default) | ![Home in the Dark theme](../screens/t096/theme-dark.png)<br>Dark | ![Home in the Night theme](../screens/t096/theme-night.png)<br>Night |
+| ![Home in the Soft theme](../screens/t096/theme-soft.png)<br>Soft | ![Home in the Stock theme](../screens/t096/theme-stock.png)<br>Stock | |
 
 ## Known issues
 

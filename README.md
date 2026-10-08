@@ -63,7 +63,7 @@ The T-Display SF32 sits on its 20-key keypad board and runs its own card-based i
 | [Heltec V2, V3, V4, V4-R8](docs/boards/compact-repeater.md)       | 0.96" OLED       | 🧪      | [esptool / web](docs/install/esp32-s3.md) |
 | [Heltec Wireless Tracker V1, V2](docs/boards/compact-repeater.md) | 0.96" colour TFT | 🧪      | [esptool / web](docs/install/esp32-s3.md) |
 
-The standard MeshCore repeater with a minimal Cairn screen: Status, Spectrum and a few Settings on the one button, and a power save that keeps the screen and TX LED off until a double-click. Holding the button on Status (~3 s, then release) turns it off; a press turns it back on.
+The standard MeshCore repeater with a minimal Cairn screen: Status, Spectrum and a few Settings on the one button, and a power save that keeps the screen and TX LED off until a double-click. Holding the button on Status (~3 s, then release) turns it off; a press turns it back on. The screens below are simulated with fictional sample data.
 
 | | | |
 |---|---|---|
@@ -145,6 +145,15 @@ The same interface on the [ThinkNode M9](docs/boards/thinknode-m9.md), driven by
 |---|---|---|
 | ![M9 Battery](docs/screens/m9/battery.png)<br>M9 · Battery | ![M9 Spectrum](docs/screens/m9/spectrum.png)<br>M9 · Spectrum | ![M9 Quick panel](docs/screens/m9/quick-panel.png)<br>M9 · Quick panel |
 | ![M9 Settings](docs/screens/m9/settings.png)<br>M9 · Settings | ![T-Deck Home](docs/screens/tdeck/home.png)<br>T-Deck · Home | |
+
+### Heltec T096
+
+The themed one-button interface on the [T096](docs/boards/heltec-t096.md)'s 0.96" screen, rendered by the firmware's own drawing code in a desktop simulator with fictional sample data. More, including all five themes, on the [board page](docs/boards/heltec-t096.md#screens).
+
+| | | |
+|---|---|---|
+| ![T096 Home](docs/screens/t096/home.png)<br>T096 · Home | ![T096 Spectrum](docs/screens/t096/spectrum.png)<br>T096 · Spectrum | ![T096 Recent](docs/screens/t096/recent.png)<br>T096 · Recent |
+| ![T096 Night theme](docs/screens/t096/theme-night.png)<br>T096 · Night theme | ![T096 Soft theme](docs/screens/t096/theme-soft.png)<br>T096 · Soft theme | ![T096 Radio](docs/screens/t096/radio.png)<br>T096 · Radio |
 
 ## Reporting a problem
 
