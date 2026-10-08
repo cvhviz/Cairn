@@ -133,6 +133,15 @@ More promo images (free to share) are in [docs/promo](docs/promo).
 
 Screens use fictional sample data.
 
+### ThinkNode M9 and T-Deck
+
+The same interface on the [ThinkNode M9](docs/boards/thinknode-m9.md), driven by its keys, and on the [T-Deck](docs/boards/lilygo-t-deck.md), by touch, keyboard and trackball. Captured on the devices.
+
+| | | |
+|---|---|---|
+| ![M9 Battery](docs/screens/m9/battery.png)<br>M9 · Battery | ![M9 Spectrum](docs/screens/m9/spectrum.png)<br>M9 · Spectrum | ![M9 Quick panel](docs/screens/m9/quick-panel.png)<br>M9 · Quick panel |
+| ![M9 Settings](docs/screens/m9/settings.png)<br>M9 · Settings | ![T-Deck Home](docs/screens/tdeck/home.png)<br>T-Deck · Home | |
+
 ## Reporting a problem
 
 [Open an issue](https://github.com/cvhviz/Cairn/issues/new/choose) and pick **Bug report**. The form asks for the board, the build number from the splash screen, how you installed it, and what happened. A serial log helps a lot. Reports on 🧪 preview boards are especially useful, including "it works".
