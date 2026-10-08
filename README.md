@@ -65,6 +65,10 @@ The T-Display SF32 sits on its 20-key keypad board and runs its own card-based i
 
 The standard MeshCore repeater with a minimal Cairn screen: Status, Spectrum and a few Settings on the one button, and a power save that keeps the screen and TX LED off until a double-click.
 
+| | | |
+|---|---|---|
+| ![Repeater Status](docs/screens/repeater/t096-status.png)<br>T096 repeater · Status | ![Repeater Spectrum](docs/screens/repeater/t096-spectrum.png)<br>T096 repeater · Spectrum | ![Repeater Settings](docs/screens/repeater/t096-settings.png)<br>T096 repeater · Settings |
+
 ### Coming soon
 
 - **Map downloads on the device**, straight over Wi-Fi, so you won't need a computer to prepare the offline map card. Until then, [tools/maptiles.py](tools/maptiles.py) builds the card on a computer.

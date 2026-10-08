@@ -15,6 +15,14 @@ A repeater image for small one-button boards with a screen. It is the standard M
 
 ✅ beta: run on hardware. 🧪: built from the same code, not yet tried on that board. Reports are welcome.
 
+## Screens
+
+Captured on a T096 over USB (the colour TFT boards look the same; the OLED boards draw it in white on black).
+
+| | | |
+|---|---|---|
+| ![Status](../screens/repeater/t096-status.png)<br>Status | ![Spectrum](../screens/repeater/t096-spectrum.png)<br>Spectrum | ![Settings](../screens/repeater/t096-settings.png)<br>Settings |
+
 ## Pages
 
 One button. **Click** moves to the next page; **hold** acts.
