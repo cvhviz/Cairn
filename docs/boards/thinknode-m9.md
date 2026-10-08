@@ -15,6 +15,15 @@ Cairn runs the same interface as the [Wio Tracker L2 Pro](wio-tracker-l2-pro.md)
 
 **Beta** means it is tested on hardware but new to Cairn. It passes Cairn's full on-device test suite (13 of 13): boot, the Home cards, Settings, the quick panel, the lock screen, Radio, Spectrum and Band scan, the GPS map, a walk over every page and sheet by keys, and quick key runs. Some features haven't been tried on the M9 yet; they are listed under [Known issues](#known-issues).
 
+## Screens
+
+Captured on an M9 running Cairn 108 (the focus ring shows which item the keys are on).
+
+| | |
+|---|---|
+| ![Battery](../screens/m9/battery.png)<br>Battery | ![Spectrum](../screens/m9/spectrum.png)<br>Spectrum |
+| ![Quick panel](../screens/m9/quick-panel.png)<br>Quick panel | ![Settings](../screens/m9/settings.png)<br>Settings |
+
 ## Which file
 
 | You want to… | File | How |
