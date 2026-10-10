@@ -1,6 +1,9 @@
-<p align="center"><img src="docs/cairn_mark.png" alt="Cairn" width="140"></p>
-
-<h1 align="center">Cairn</h1>
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/logo/cairn-lockup-stacked.png">
+    <img src="docs/logo/cairn-lockup-stacked-onlight.png" alt="CAIRN" width="320">
+  </picture>
+</p>
 
 **Cairn** is a fork of the [MeshCore](https://github.com/meshcore-dev/MeshCore) companion firmware. Every board is built from one source tree that shares MeshCore's mesh and radio code, and every build works with the official MeshCore apps ([web](https://app.meshcore.nz), [Android](https://play.google.com/store/apps/details?id=com.liamcottle.meshcore.android), [iOS](https://apps.apple.com/us/app/meshcore/id6742354151)).
 
@@ -17,8 +20,9 @@ Builds are numbered: the splash screen shows **BUILD N**, releases are tagged `c
 - **Sent messages sync:** messages sent from a phone app appear in the board's chats, and messages sent on the board appear in CairnOS.
 - **Quick panel:** Radio · Theme · Settings buttons along the bottom.
 - **M9 and T-Deck:** the keys reach each card in the Nodes Cards view, and the keyboard light goes dark sooner on battery. The T-Deck's Battery saver roughly doubles screen-off standby (about 54 h instead of 28 h).
-- **Updating:** L2 Pro, Heltec V4 touch, ThinkNode M9 and T-Deck update over Wi-Fi in **Settings › System › Firmware update**. The T096 companion and the compact repeaters are rebuilt as Cairn 112 with no functional changes.
-- **Other boards:** the T-Display SF32 stays on [Cairn 108](https://github.com/cvhviz/Cairn/releases/tag/cairn-v108) until its update has been tested; the L1 Pro and the preview boards stay on [Cairn 107](https://github.com/cvhviz/Cairn/releases/tag/cairn-v107).
+- **T-Display SF32** (from 108): a mini spectrum in the Home header, Settings as cards, the nine themes, larger text and colour emoji, sent-message sync, Wake on motion, and a power switch that turns the docked board off on battery. See its [board page](docs/boards/lilygo-t-display-sf32.md).
+- **Updating:** L2 Pro, Heltec V4 touch, ThinkNode M9, T-Deck and T-Display SF32 update over Wi-Fi in **Settings › System › Firmware update**. The T096 companion and the compact repeaters are rebuilt as Cairn 112 with no functional changes.
+- **Other boards:** the L1 Pro and the preview boards stay on [Cairn 107](https://github.com/cvhviz/Cairn/releases/tag/cairn-v107).
 
 Cairn 111 added nine themes, a QR code for sharing contacts, GPS data and the path hash setting; see its [release notes](https://github.com/cvhviz/Cairn/releases/tag/cairn-v111).
 
@@ -96,7 +100,7 @@ Want another board? [Ask for it](https://github.com/cvhviz/Cairn/issues/new?temp
 | USB-serial companion          |    –     |   –    |        –        |      –       |      –      |       –        |    ✅    |   ✅    |
 | Contact QR code               |    –     |   ✅   |       ✅        |      ✅      |     ✅      |       –        |    –     |    –    |
 | Room server image             |    ✅    |   –    |        –        |      –       |      –      |       –        |    –     |    –    |
-| Colour themes                 |    –     |   ✅   |       ✅        |      ✅      |     ✅      |       –        |    ✅    | some ⁴  |
+| Colour themes                 |    –     |   ✅   |       ✅        |      ✅      |     ✅      |       ✅       |    ✅    | some ⁴  |
 | Music, voice, IR, sensors     |    –     |   –    |        –        |      –       |      –      |       ✅       |    –     |    –    |
 | Imperial units, 12-hour clock |    ✅    |   ✅   |       ✅        |      ✅      |     ✅      |       ✅       |    ✅    |   ✅    |
 
