@@ -16,11 +16,12 @@ Cairn runs the same interface as the [Wio Tracker L2 Pro](wio-tracker-l2-pro.md)
 
 ## Keyboard
 
-- **Keyboard light:** lit while the screen is on, dark when it goes dark or locks. Set its level, or Off, in Settings › Hardware › Display (under Brightness) or with the keyboard slider in the quick panel. Alt+B still turns it on or off, until the screen next wakes or goes dark.
+- **Keyboard light:** lit while the screen is on, dark when it goes dark or locks. It also goes dark 2 s before the screen times out, and on battery 10 s after the last key or touch; any input relights it (from Cairn 112). Set its level, or Off, in Settings › Hardware › Display (under Brightness) or with the keyboard slider in the quick panel. Alt+B still turns it on or off, until the screen next wakes or goes dark.
 - **Space is the customizable button:** outside a text field, Space and double Space run the actions picked in Settings › Hardware › Buttons (Quick panel and New message by default). A single Space acts after a short wait for a second one, unless double Space is set to None. On a dark screen Space only wakes it, and locked it does nothing.
 - **Charging:** the blue LED is the charge light (on while charging, off when full); the T-Deck charges from USB-C with the power switch on or off. On USB the cell can't be read (the battery pin sees USB power), so the status bar, Home and the Battery page say "USB · charging" instead of a percent (from Cairn 111); the blue LED going out is the sign it's charged.
 - **GPS (T-Deck Plus, or an add-on GPS):** found at 9600 or 38400 baud by itself; a u-blox receiver goes to standby while GPS is off (from Cairn 111).
-- **Battery saver** (Settings › Hardware › Display › Power, off by default, beta, from Cairn 111): while the screen is dark the chip sleeps between radio packets, with Bluetooth off. Its savings haven't been measured yet.
+- **Battery saver** (Settings › Hardware › Display › Power, off by default, beta, from Cairn 111): while the screen is dark the chip sleeps between radio packets, with Bluetooth off. Measured for Cairn 112: about 43 mA with the screen off instead of about 82 mA, so about 54 h of standby on a full charge instead of about 28 h. It slept 98–99 % of a 14-hour run and still received every packet.
+- **Nodes Cards view by keys:** the trackball and arrow keys focus one card at a time; left and right move between the two in a row (from Cairn 112).
 
 ## Screens
 
@@ -33,7 +34,7 @@ Home on a T-Deck running Cairn 108, with the trackball's focus ring on the Batte
 | You want to… | File | How |
 |---|---|---|
 | install Cairn for the first time | `MeshCore-TDeckPlus-CairnN-<date>-full.bin` | write at `0x0` ([steps](../install/esp32-s3.md)). If it runs MeshCore, export your key and contacts in the app first. |
-| update | `MeshCore-TDeckPlus-CairnN-<date>-update.bin` | USB at `0x10000`, or over Wi-Fi: Settings > System > Firmware update fetches it from the latest release (from Cairn 108 on) |
+| update | `MeshCore-TDeckPlus-CairnN-<date>-update.bin` | USB at `0x10000`, or over Wi-Fi: Settings › System › Firmware update fetches it from the latest release (from Cairn 108 on), or a browser upload in Updater mode |
 | recover a device that won't boot | `MeshCore-TDeckPlus-CairnN-<date>-full.bin` | write at `0x0` |
 
 The same files run on the T-Deck and the T-Deck Plus. Write the `-full.bin` or the `-update.bin`, never both.
@@ -45,6 +46,6 @@ The same files run on the T-Deck and the T-Deck Plus. Write the `-full.bin` or t
 ## Known issues
 
 - **GPS (T-Deck Plus) hasn't been checked on hardware yet.**
-- **Battery percentage and battery life** haven't been measured on the T-Deck yet.
+- **Battery percentage** hasn't been calibrated on the T-Deck yet. Screen-off standby has been measured (see Battery saver above); battery life in use hasn't.
 - **Hibernate:** waking with the trackball click hasn't been confirmed.
 - **The full automated on-device test suite** hasn't been run on it yet. Please [report](https://github.com/cvhviz/Cairn/issues/new?template=bug_report.yml) anything that looks wrong.

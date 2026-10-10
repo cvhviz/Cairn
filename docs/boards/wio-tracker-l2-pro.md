@@ -14,7 +14,7 @@ Wio-S3 module (ESP32-S3, 16 MB flash, 8 MB PSRAM), SX1262 LoRa (TCXO 3.0 V), 3.2
 | You want to… | File | How |
 |---|---|---|
 | install Cairn for the first time | `MeshCore-WioL2Pro-CairnN-<date>-full.bin` | full erase, then write at `0x0`. **Erases everything**: export your key and contacts in the app first. |
-| update | `MeshCore-WioL2Pro-CairnN-<date>-update.bin` | online (Settings > System > Firmware update), a browser upload in update mode, or USB at `0x10000` |
+| update | `MeshCore-WioL2Pro-CairnN-<date>-update.bin` | online (Settings › System › Firmware update), a browser upload in Updater mode, or USB at `0x10000` |
 | recover a device that won't boot | `MeshCore-WioL2Pro-CairnN-<date>-full.bin` | full erase, then write at `0x0` |
 
 Write the `-full.bin` or the `-update.bin`, never both. If the device last updated over Wi-Fi, run `esptool --chip esp32s3 erase-region 0xe000 0x2000` before a USB write of the `-update.bin` ([why](../install/esp32-s3.md#if-the-device-last-updated-over-wi-fi)).
@@ -30,7 +30,7 @@ Write the `-full.bin` or the `-update.bin`, never both. If the device last updat
 
 ## Features
 
-- **Side icon rail**: Home, Chats, Nodes, Radio, GPS and Settings, with unread and new-advert badges. A status bar shows the page title, a 12-hour clock, Bluetooth, GPS and battery.
+- **Side icon rail**: Home, Chats, Nodes, Radio, GPS and Settings, with unread and new-advert badges. A status bar shows the page title (in its tab's colour), a 12-hour clock, Bluetooth, GPS and battery. Notices take the status bar over for a moment (from Cairn 112); tap one with a chevron to open what it is about.
 - **Home dashboard**: a large clock with sunrise/sunset, temperature and channel-busy readouts, plus live cards for battery, chats, nodes, GPS, radio and network.
 - **Chats**: channels, direct messages and rooms in one list, message bubbles, a full on-screen keyboard with emoji, quick replies and a byte counter.
 - **Colour emoji**: 229 Noto emoji drawn inline in messages, previews and node names.
@@ -38,15 +38,17 @@ Write the `-full.bin` or the `-update.bin`, never both. If the device last updat
 - **Repeater tools**: a repeater scan (who hears you, whom you hear) and remote admin for repeaters and room servers.
 - **Radio**: frequency and settings, Now/Floor/Peak/Margin meters, a live signal graph and the last packets heard, each in its own card, with a large Advert button.
 - **Spectrum and band scan**: your channel over 10 s to 1 h, and a sweep of the whole band with a waterfall.
-- **Quick panel**: Wi-Fi, Bluetooth, GPS and sound toggles, lock, flashlight, advert, brightness and volume.
-- **GPS**: position in ft/mph with a course compass, an on/off switch, Off / On / Eco modes, and an **offline map** from microSD tiles with pinch to zoom. Tap the status or any card for **GPS data**: satellites, HDOP, grid square, GPS time and the NMEA stream (from Cairn 111).
-- **Settings**: six tiles (Radio, Connect, Hardware, Location, Appearance, System), each with three lines of what it holds. Appearance, Display, Sound, Buttons, Wake & lock and Clock apply as you change them; Radio, Bluetooth, the PIN, Wi-Fi, Join channel and Profile are drafts with Cancel and Save (from Cairn 111). Destructive actions need a hold plus a confirmation. **Settings › Radio** shows TX power and every LoRa setting (preset, frequency, bandwidth, spreading factor, coding rate), each editable, with a typed frequency for a custom radio, and the **path hash** size (1–3 bytes per hop, from Cairn 111).
-- **Themes** (Settings › Appearance, from Cairn 111): Dark, Neon, Light, Sunlight, Night, Ocean, Cartoon, Red Radar and Green Radar, previewed live.
+- **Quick panel**: Wi-Fi, Bluetooth, GPS and sound toggles, lock, flashlight, advert, brightness and volume, and Radio, Theme and Settings buttons (from Cairn 112).
+- **GPS**: position in ft/mph with a course compass, an on/off switch, Off / On / Eco modes (Eco shows when the next fix is due), and an **offline map** from microSD tiles with pinch to zoom. Tap the status or any card for **GPS data**: satellites, HDOP, grid square, GPS time and the NMEA stream (from Cairn 111).
+- **Settings**: six tiles (Radio, Connect, Hardware, Location, Appearance, System), each with three lines of what it holds. Every page under them is tiles too (from Cairn 112): two across, each with an icon, its name and its value; a tap flips a switch on its tile, and other values open a small sheet. Appearance, Display, Sound, Buttons, Wake & lock and Clock apply as you change them; Radio, Bluetooth, the PIN, Wi-Fi, Join channel and Profile are drafts with Cancel and Save (from Cairn 111). Destructive actions need a hold (the tile says how long) plus a confirmation. **Settings › Radio** shows TX power and every LoRa setting (preset, frequency, bandwidth, spreading factor, coding rate), each editable, with a typed frequency for a custom radio, and the **path hash** size (1–3 bytes per hop, from Cairn 111).
+- **Themes** (Settings › Appearance › Theme, from Cairn 111): Dark, Neon, Light, Sunlight, Night, Ocean, Cartoon, Red Radar and Green Radar, previewed live.
+- **Screensaver** (Settings › Appearance › Screensaver, from Cairn 112): Beacon, Ambient, Night clock or Auto, in place of a screen that never times out (Screen timeout Never, or Stay on USB). It runs on USB power by default, starts after 1–30 minutes without a touch, and on battery hands over to a real screen-off after a time you choose.
 - **Battery**: the charge and a since-when line ("On battery since Wed · 16h"), time left, rate, today's range and the screen-on share, and a graph over 1 h to 7 days.
 - **Sound**: volume and a choice of alert tone per event.
 - **Wake & lock**: tap to wake, auto-lock, and a pocket-safe lock screen.
 - **Clock**: 12h / 24h / analog, US time zones or a custom offset, and internet time over Wi-Fi; *Always take internet time* skips the question when the clock is off by over an hour (from Cairn 111).
-- **Wi-Fi**: on-device setup, clock sync, the MeshCore app over Wi-Fi, browser updates, and **online updates** from this repository's releases (checked once a day; nothing installs without your confirmation).
+- **Wi-Fi**: on-device setup, clock sync, the MeshCore app over Wi-Fi, **online updates** from this repository's releases (checked once a day; nothing installs without your confirmation), and **Updater mode** for an update sent from a browser (from Cairn 112; CairnOS can start one with its next update, after you tap Allow on the board).
+- **Sent-message sync** (from Cairn 112): messages a phone app sends appear in the board's chats, with the delivered tick when the ACK arrives; messages sent on the board appear in CairnOS, or wait until it next syncs.
 
 ## Screens
 

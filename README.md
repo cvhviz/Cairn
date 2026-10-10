@@ -8,18 +8,19 @@ Builds are numbered: the splash screen shows **BUILD N**, releases are tagged `c
 
 **Download the files from the [latest release](https://github.com/cvhviz/Cairn/releases/latest).** L1 releases from before Cairn are in the [older L1 repository](https://github.com/cvhviz/WioL1Pro-CVHBuild).
 
-## Latest: Cairn 111 (8 Oct 2026)
+## Latest: Cairn 112 (9 Oct 2026)
 
-- **Themes:** a new **Settings › Appearance** tile with nine themes, previewed live: Dark, Neon, Light, Sunlight (highest contrast, for outdoors), Night (reds and ambers), Ocean, Cartoon, Red Radar and Green Radar.
-- **Fewer Save buttons:** Appearance, Display, Sound, Buttons, Wake & lock and Clock apply as you change them. Radio, Bluetooth, the PIN, Wi-Fi, Join channel and Profile still ask first.
-- **Share a contact by QR code:** tap the short key on a node's page (or your own in About) for a QR code the MeshCore apps scan to add the contact.
-- **Nodes, Radio and Battery reworked:** CairnOS icons (a walkie-talkie for companions, a mast for repeaters), pebble avatars, node cards with ID and position; the Radio tab as cards with a bigger Advert button; a Path hash setting (1–3 bytes per hop); a cleaner Battery page.
-- **GPS data:** an on/off switch on the GPS page, and a page of every GPS reading (satellites, HDOP, grid square, GPS time, NMEA). The T-Deck finds a 9600 or 38400 baud GPS by itself.
-- **Clock:** "Always set" for internet time, from the question or in Settings › Clock.
-- **Updating:** L2 Pro, Heltec V4 touch, ThinkNode M9 and T-Deck on Cairn 110 update over Wi-Fi in **Settings › System › Firmware update**. The T096 companion is updated (last built for 107) and the compact repeaters are rebuilt as Cairn 111.
-- **Other boards:** the T-Display SF32 stays on [Cairn 108](https://github.com/cvhviz/Cairn/releases/tag/cairn-v108); the L1 Pro and the preview boards on [Cairn 107](https://github.com/cvhviz/Cairn/releases/tag/cairn-v107).
+- **Settings as tiles:** every Settings page now uses tiles like the Settings root: two across, each with an icon, its name and its value. A tap flips a switch on its tile; other values open a small sheet.
+- **Screensaver** (Settings › Appearance › Screensaver): Beacon, Ambient, Night clock or Auto, for a screen set never to time out.
+- **Notices in the status bar:** a new message or a saved setting tints the status bar for a moment instead of covering the page. When a notice leads somewhere, a tap on it opens it.
+- **Updater mode** (was "update mode"): send an update over Wi-Fi from a browser; with the next CairnOS update, the app can start one over Bluetooth once you tap Allow on the board.
+- **Sent messages sync:** messages sent from a phone app appear in the board's chats, and messages sent on the board appear in CairnOS.
+- **Quick panel:** Radio · Theme · Settings buttons along the bottom.
+- **M9 and T-Deck:** the keys reach each card in the Nodes Cards view, and the keyboard light goes dark sooner on battery. The T-Deck's Battery saver roughly doubles screen-off standby (about 54 h instead of 28 h).
+- **Updating:** L2 Pro, Heltec V4 touch, ThinkNode M9 and T-Deck update over Wi-Fi in **Settings › System › Firmware update**. The T096 companion and the compact repeaters are rebuilt as Cairn 112 with no functional changes.
+- **Other boards:** the T-Display SF32 stays on [Cairn 108](https://github.com/cvhviz/Cairn/releases/tag/cairn-v108) until its update has been tested; the L1 Pro and the preview boards stay on [Cairn 107](https://github.com/cvhviz/Cairn/releases/tag/cairn-v107).
 
-Cairn 110 showed every LoRa setting in Settings › Radio and added a keyboard light level on the T-Deck and M9; see its [release notes](https://github.com/cvhviz/Cairn/releases/tag/cairn-v110).
+Cairn 111 added nine themes, a QR code for sharing contacts, GPS data and the path hash setting; see its [release notes](https://github.com/cvhviz/Cairn/releases/tag/cairn-v111).
 
 ## Supported boards
 

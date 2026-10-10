@@ -1,6 +1,6 @@
 # Elecrow ThinkNode M9
 
-✅ Tested on hardware, beta · ESP32-S3 · [install with esptool or the web flasher](../install/esp32-s3.md) · updates over Wi-Fi (Settings > System > Firmware update)
+✅ Tested on hardware, beta · ESP32-S3 · [install with esptool or the web flasher](../install/esp32-s3.md) · updates over Wi-Fi (Settings › System › Firmware update)
 
 The ThinkNode M9 is a handheld with:
 - an ESP32-S3 (16 MB flash, 8 MB PSRAM)
@@ -29,7 +29,7 @@ Captured on an M9 running Cairn 108 (the focus ring shows which item the keys ar
 | You want to… | File | How |
 |---|---|---|
 | install Cairn for the first time | `MeshCore-ThinkNodeM9-CairnN-<date>-full.bin` | full erase, then write at `0x0` ([steps](../install/esp32-s3.md)). **Erases everything**: if it runs MeshCore, export your key and contacts in the app first. |
-| update | `MeshCore-ThinkNodeM9-CairnN-<date>-update.bin` | USB at `0x10000`, or over Wi-Fi: Settings > System > Firmware update (from Cairn 107) fetches it from the latest release. |
+| update | `MeshCore-ThinkNodeM9-CairnN-<date>-update.bin` | USB at `0x10000`, or over Wi-Fi: Settings › System › Firmware update (from Cairn 107) fetches it from the latest release, or a browser upload in Updater mode (from Cairn 112). |
 | recover a device that won't boot | `MeshCore-ThinkNodeM9-CairnN-<date>-full.bin` | full erase, then write at `0x0` |
 
 Write the `-full.bin` or the `-update.bin`, never both. Coming from Elecrow's firmware, Meshtastic or stock MeshCore, use the `-full.bin`.
@@ -61,15 +61,16 @@ Write the `-full.bin` or the `-update.bin`, never both. Coming from Elecrow's fi
 
 ## Features
 
-The L2 interface, as on the [L2 Pro page](wio-tracker-l2-pro.md#features): the sidebar, the Home dashboard, chats with colour emoji, nodes, repeater scan and remote admin, the quick panel, GPS with Off / On / Eco, settings that apply at once, except radio, connection and security changes (from Cairn 111), themes, the lock screen and Wi-Fi with the MeshCore app over Wi-Fi. On the M9 also:
+The L2 interface, as on the [L2 Pro page](wio-tracker-l2-pro.md#features): the sidebar, the Home dashboard, chats with colour emoji, nodes, repeater scan and remote admin, the quick panel, GPS with Off / On / Eco, settings as tiles (from Cairn 112) that apply at once, except radio, connection and security changes (from Cairn 111), themes, the screensaver, notices in the status bar, sent-message sync with CairnOS, the lock screen and Wi-Fi with the MeshCore app over Wi-Fi. On the M9 also:
 
 - **Spectrum and Band scan on the LR1110.**
 - **Battery page:** the charge, the voltage and a line with the state and since when ("On battery since Wed · 16h 18m"), four cells (time left or to full, rate, today's low and high, the screen-on share or the Battery saver mode), and a graph over 1 hour, 6 hours, 24 hours or 7 days in % or volts, with markers for plug-in, unplug, full and restarts. OK on the graph puts a cursor at now; left and right move it. The week's history comes back after a restart, once the clock is set.
-- **Keyboard light** (Settings › Hardware › Display, under Brightness, and the quick panel's keyboard slider): the level the keys light at, or Off. The keyboard controller lights the keys at a key press for 10 s; they stay dark while the screen is dark or locked.
+- **Keyboard light** (Settings › Hardware › Display, under Brightness, and the quick panel's keyboard slider): the level the keys light at, or Off. The keyboard controller lights the keys at a key press for 10 s; they stay dark while the screen is dark or locked, and go dark 2 s before the screen times out (from Cairn 112).
 - **Battery saver** (Settings › Hardware › Display › Power, off by default, beta): while the screen is dark it turns Bluetooth off and lets the chip sleep between radio packets. A key still wakes the screen. Turning Bluetooth back on restarts the device.
 - **Automatic power-off** below 3.3 V on battery, to protect the cell.
 - **MIC** turns the screen off.
-- **microSD:** the card mounts (a 16 GB card was tested); Settings > Storage sees it.
+- **Nodes Cards view:** the keys focus one card at a time; left and right move between the two in a row (from Cairn 112).
+- **microSD:** the card mounts (a 16 GB card was tested); Settings › Hardware › Storage sees it.
 
 ## Known issues
 
@@ -79,8 +80,8 @@ The L2 interface, as on the [L2 Pro page](wio-tracker-l2-pro.md#features): the s
 - **Unplugging USB:** whether the status bar switches from the plug to the battery when you unplug hasn't been confirmed yet.
 - **Hibernate:** a key may not wake the board. The power slider (off, then on) or RESET always does.
 - **Battery percentage:** the curve for the M9's 4.35 V cell is provisional until a full discharge is measured. While Wi-Fi is on the battery can't be read, so the Battery page says "Reading paused · Wi-Fi".
-- **Not reachable by keys yet:** the Home header's long press (Settings > Clock gets there), a single card in the Nodes cards view, and the Spectrum plots' tap-for-readout.
-- **Settings > Buttons** configures a button the M9 doesn't have, and Tap to wake does nothing here.
+- **Not reachable by keys yet:** the Home header's long press (Settings › System › Clock gets there) and the Spectrum plots' tap-for-readout.
+- **Settings › Hardware › Buttons** configures a button the M9 doesn't have, and Tap to wake does nothing here.
 - The motion sensor and compass chip aren't used; the GPS page's compass follows your course.
 - A V1.1 board (keyboard controller at I2C 0x6D) should work, but only V1.0 has been tried.
 

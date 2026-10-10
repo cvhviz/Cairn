@@ -11,7 +11,7 @@ The Heltec V4 with Heltec's Expansion Kit V2: ESP32-S3 (16 MB flash, 8 MB octal 
 | You want to… | File | How |
 |---|---|---|
 | install Cairn for the first time | `MeshCore-HeltecV4Touch-CairnN-<date>-full.bin` | full erase, then write at `0x0`. **Erases everything**: export your key and contacts in the app first. |
-| update | `MeshCore-HeltecV4Touch-CairnN-<date>-update.bin` | online (Settings > System > Firmware update), a browser upload in update mode, or USB at `0x10000` |
+| update | `MeshCore-HeltecV4Touch-CairnN-<date>-update.bin` | online (Settings › System › Firmware update), a browser upload in Updater mode, or USB at `0x10000` |
 | recover a device that won't boot | `MeshCore-HeltecV4Touch-CairnN-<date>-full.bin` | full erase, then write at `0x0` |
 
 Write the `-full.bin` or the `-update.bin`, never both. If the device last updated over Wi-Fi, run `esptool --chip esp32s3 erase-region 0xe000 0x2000` before a USB write of the `-update.bin` ([why](../install/esp32-s3.md#if-the-device-last-updated-over-wi-fi)).
